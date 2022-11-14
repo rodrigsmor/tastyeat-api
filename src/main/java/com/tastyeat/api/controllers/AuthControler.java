@@ -1,14 +1,21 @@
 package com.tastyeat.api.controllers;
 
+import com.sun.xml.bind.v2.TODO;
 import com.tastyeat.api.model.Roles;
 import com.tastyeat.api.model.UserEntity;
 import com.tastyeat.api.repository.RoleRepository;
 import com.tastyeat.api.repository.UserRepository;
+import com.tastyeat.api.utils.config.JwtGenerator;
+import com.tastyeat.api.utils.dto.AuthResponseDto;
+import com.tastyeat.api.utils.dto.LoginDto;
 import com.tastyeat.api.utils.dto.RegisterDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,13 +31,15 @@ public class AuthControler {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
+    private JwtGenerator jwtGenerator;
 
     @Autowired
-    public AuthControler(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    public AuthControler(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder, JwtGenerator jwtGenerator) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtGenerator = jwtGenerator;
     }
 
     @PostMapping("/register")
@@ -50,5 +59,15 @@ public class AuthControler {
         userRepository.save(user);
 
         return new ResponseEntity<>("User registered success", HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponseDto> login(@RequestBody LoginDto loginDto) {
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword()));
+
+        String token = jwtGenerator.generateToken(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        return new ResponseEntity<>(new AuthResponseDto(token), HttpStatus.ACCEPTED);
     }
 }
