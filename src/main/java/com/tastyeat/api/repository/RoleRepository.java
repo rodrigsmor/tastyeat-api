@@ -1,10 +1,13 @@
 package com.tastyeat.api.repository;
 
-import com.tastyeat.api.model.Roles;
+import com.tastyeat.api.model.Role;
+import com.tastyeat.api.utils.constants.RoleTypes;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface RoleRepository extends JpaRepository<Roles, Long> {
-    Optional<Roles> findByName(String name);
+@Repository
+public interface RoleRepository extends JpaRepository<Role, Long> {
+    Optional<Role> findByName(RoleTypes name);
 }
