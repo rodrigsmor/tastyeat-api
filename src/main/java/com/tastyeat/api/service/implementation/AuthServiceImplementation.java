@@ -12,7 +12,6 @@ import com.tastyeat.api.utils.dto.LoginDto;
 import com.tastyeat.api.utils.dto.ResponseDto;
 import com.tastyeat.api.utils.dto.SignupDto;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -17,7 +17,7 @@ public class JwtGenerator {
     private String SECRET_KEY;
 
     @Value("${JWT_ISSUER}")
-    private String ISSUER;
+    private String JWT_ISSUER;
 
     public String generateToken(Authentication authentication) {
         String username = authentication.getName();
@@ -26,7 +26,7 @@ public class JwtGenerator {
 
         String token = Jwts.builder()
                 .setSubject(username)
-                .setIssuer(SecurityConstants.JWT_ISSUER)
+                .setIssuer(JWT_ISSUER)
                 .setIssuedAt(new Date())
                 .setExpiration(expireDate)
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
