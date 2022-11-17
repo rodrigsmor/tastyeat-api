@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.Optional;
 
 @Data
 @Service
@@ -38,10 +39,7 @@ public class RecipeServiceImplementation implements RecipeService {
             UserEntity user = userRepository.getReferenceById(id);
             Collection<Recipe> recipes = user.getRecipes();
 
-            Recipe newRecipe = new Recipe();
-            newRecipe.setRecipeTitle(recipe.getRecipeTitle());
-            newRecipe.setDescription(recipe.getDescription());
-            newRecipe.setHowToPrepare(recipe.getHowToPrepare());
+            Recipe newRecipe = new Recipe(recipe);
 
             Recipe recipeCreated = recipeRepository.save(newRecipe);
             recipes.add(recipeCreated);
@@ -49,9 +47,8 @@ public class RecipeServiceImplementation implements RecipeService {
             user.setRecipes(recipes);
 
             response.setSuccess(true);
+            response.setData(userRepository.save(user).getRecipes().stream().filter(recipeStream -> recipeStream.getId().equals(recipeCreated.getId())));
             response.setMessage("Receita criada com sucesso!");
-//            response.setData(userRepository.save(user));
-            response.setData(recipeCreated);
 
             URI uri = URI.create(ServletUriComponentsBuilder
                     .fromCurrentContextPath()
@@ -60,6 +57,34 @@ public class RecipeServiceImplementation implements RecipeService {
             );
 
             return ResponseEntity.created(uri).body(response);
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setMessage(e.getMessage());
+            response.setData(e.getLocalizedMessage());
+
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @Override
+    public ResponseEntity<ResponseDto> getRecipe(Long recipeId) {
+        ResponseDto response = new ResponseDto();
+        
+        try {
+            if (recipeRepository.existsById(recipeId)) {
+                Optional<Recipe> recipe = recipeRepository.findById(recipeId);
+
+                response.setSuccess(true);
+                response.setMessage("Receita recuperada com êxito!");
+                response.setData(recipe.get());
+
+                return ResponseEntity.ok().body(response);
+            }
+
+            response.setSuccess(false);
+            response.setMessage("Essa receita não existe!");
+
+            return ResponseEntity.badRequest().body(response);
         } catch (Exception e) {
             response.setSuccess(false);
             response.setMessage(e.getMessage());

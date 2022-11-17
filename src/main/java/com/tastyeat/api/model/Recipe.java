@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -20,9 +21,8 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Min(5)
-    @Max(112)
-    @Column(columnDefinition = "varchar(112)")
+    @NotNull
+    @Column(columnDefinition = "varchar(112) not null")
     private String recipeTitle;
 
     @Column(columnDefinition = "varchar(330)")

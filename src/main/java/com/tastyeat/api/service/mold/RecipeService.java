@@ -6,4 +6,5 @@ import org.springframework.http.ResponseEntity;
 
 public interface RecipeService {
     ResponseEntity<ResponseDto> createRecipe(Long id, RecipeDto recipe);
+    ResponseEntity<ResponseDto> getRecipe(Long recipeId);
 }
