@@ -8,6 +8,7 @@ import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.dto.RecipeDto;
 import com.tastyeat.api.utils.dto.ResponseDto;
+import com.tastyeat.api.utils.functions.RecipeMethods;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +32,9 @@ public class RecipeServiceImplementation implements RecipeService {
     @Autowired
     private RecipeRepository recipeRepository;
 
+    @Autowired
+    private RecipeMethods recipeMethods = new RecipeMethods();
+
     @Override
     public ResponseEntity<ResponseDto> createRecipe(Long id, RecipeDto recipe) {
         ResponseDto response = new ResponseDto();
@@ -39,9 +43,8 @@ public class RecipeServiceImplementation implements RecipeService {
             UserEntity user = userRepository.getReferenceById(id);
             Collection<Recipe> recipes = user.getRecipes();
 
-            Recipe newRecipe = new Recipe(recipe);
+            Recipe recipeCreated = recipeMethods.recipeCreation(recipe);
 
-            Recipe recipeCreated = recipeRepository.save(newRecipe);
             recipes.add(recipeCreated);
 
             user.setRecipes(recipes);

@@ -6,11 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Slf4j
@@ -33,9 +32,13 @@ public class Recipe {
 
     private OffsetDateTime publicationDate;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Ingredient> ingredients;
+
     public Recipe(RecipeDto recipeDto) {
         this.recipeTitle = recipeDto.getRecipeTitle();
         this.description = recipeDto.getDescription();
         this.howToPrepare = recipeDto.getHowToPrepare();
+        this.averageCookingTime = recipeDto.getAverageCookingTime();
     }
 }
