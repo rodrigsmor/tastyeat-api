@@ -37,6 +37,8 @@ public class UserEntity {
     private String bio;
 
     private String password;
+
+    @Column(unique = true)
     private String phoneNumber;
     private OffsetDateTime dateOfBirth;
 
@@ -47,5 +49,8 @@ public class UserEntity {
     private Collection<Role> roles = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_recipes", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "recipe_id", referencedColumnName = "id")
+    )
     private Collection<Recipe> recipes;
 }
