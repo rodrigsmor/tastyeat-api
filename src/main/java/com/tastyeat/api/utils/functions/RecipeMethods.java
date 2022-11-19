@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,7 +42,9 @@ public class RecipeMethods {
     }
 
     private OffsetDateTime getRecipePublicationDate() {
-        return OffsetDateTime.now();
+        OffsetDateTime date = OffsetDateTime.now();
+
+        return date.atZoneSameInstant(ZoneId.of("Z")).toOffsetDateTime();
     }
 
     private List<Ingredient> saveIngredients(List<Ingredient> ingredients) {
