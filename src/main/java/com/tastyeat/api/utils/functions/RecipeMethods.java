@@ -2,17 +2,15 @@ package com.tastyeat.api.utils.functions;
 
 import com.tastyeat.api.model.Ingredient;
 import com.tastyeat.api.model.Recipe;
+import com.tastyeat.api.model.Review;
 import com.tastyeat.api.model.Tag;
-import com.tastyeat.api.repository.IngredientRepository;
-import com.tastyeat.api.repository.RecipeRepository;
-import com.tastyeat.api.repository.TagRepository;
+import com.tastyeat.api.repository.*;
 import com.tastyeat.api.utils.dto.RecipeDto;
+import com.tastyeat.api.utils.dto.RecipeReviewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,10 +21,15 @@ public class RecipeMethods {
     @Autowired
     private TagRepository tagRepository;
     @Autowired
+    private UserRepository userRepository;
+    @Autowired
     private RecipeRepository recipeRepository;
-
+    @Autowired
+    private ReviewRepository reviewRepository;
     @Autowired
     private IngredientRepository ingredientRepository;
+    @Autowired
+    private CommomFunctions commomFunctions;
 
     public Recipe recipeCreation(RecipeDto recipeDto) {
         Recipe recipe = new Recipe(recipeDto);
@@ -36,14 +39,20 @@ public class RecipeMethods {
 
         recipe.setTags(tags);
         recipe.setIngredients(ingredients);
-        recipe.setPublicationDate(getRecipePublicationDate());
+        recipe.setPublicationDate(commomFunctions.getPublicationDate());
 
         return recipeRepository.save(recipe);
     }
 
-    private OffsetDateTime getRecipePublicationDate() {
-        OffsetDateTime date = OffsetDateTime.now();
-        return date.atZoneSameInstant(ZoneId.of("Z")).toOffsetDateTime();
+    public Review reviewCreation(RecipeReviewDto reviewDto, Long userId) {
+        Review review = new Review();
+
+        review.setCommentContent(reviewDto.getCommentContent());
+        review.setRecipeEvaluation(reviewDto.getRecipeEvaluation());
+        review.setPublicationDate(commomFunctions.getPublicationDate());
+        review.setReviewAuthor(userRepository.findById(userId).orElseThrow(null));
+
+        return reviewRepository.save(review);
     }
 
     private List<Ingredient> saveIngredients(List<Ingredient> ingredients) {

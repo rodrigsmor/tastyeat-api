@@ -44,6 +44,9 @@ public class Recipe {
     @OneToMany(fetch = FetchType.EAGER)
     private List<Ingredient> ingredients;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Review> reviews;
+
     public Recipe(RecipeDto recipeDto) {
         this.category = recipeDto.getCategory();
         this.recipeTitle = recipeDto.getRecipeTitle();

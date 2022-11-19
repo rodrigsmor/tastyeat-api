@@ -1,6 +1,8 @@
 package com.tastyeat.api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -55,4 +57,8 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "recipe_id", referencedColumnName = "id")
     )
     private Collection<Recipe> recipes;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Collection<Review> reviews;
 }

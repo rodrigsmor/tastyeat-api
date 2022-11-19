@@ -3,6 +3,7 @@ package com.tastyeat.api.resource;
 import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.dto.RecipeDto;
+import com.tastyeat.api.utils.dto.RecipeReviewDto;
 import com.tastyeat.api.utils.dto.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,5 +24,10 @@ public class RecipeResource {
     @PostMapping(ApiPaths.CREATE_RECIPE)
     public ResponseEntity<ResponseDto> createRecipe(@PathVariable Long id, @RequestBody RecipeDto recipe) {
         return recipeService.createRecipe(id, recipe);
+    }
+
+    @PostMapping(ApiPaths.ADD_COMMENT_TO_RECIPE)
+    public ResponseEntity<ResponseDto> addCommentToRecipe(@PathVariable Long userId, @PathVariable Long recipeId, @RequestBody RecipeReviewDto reviewDto) {
+        return recipeService.addCommentToRecipe(userId, recipeId, reviewDto);
     }
 }

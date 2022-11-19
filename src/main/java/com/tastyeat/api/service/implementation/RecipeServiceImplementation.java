@@ -1,12 +1,14 @@
 package com.tastyeat.api.service.implementation;
 
 import com.tastyeat.api.model.Recipe;
+import com.tastyeat.api.model.Review;
 import com.tastyeat.api.model.UserEntity;
 import com.tastyeat.api.repository.RecipeRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.dto.RecipeDto;
+import com.tastyeat.api.utils.dto.RecipeReviewDto;
 import com.tastyeat.api.utils.dto.ResponseDto;
 import com.tastyeat.api.utils.functions.RecipeMethods;
 import lombok.Data;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Set;
 
 @Data
 @Service
@@ -88,6 +91,47 @@ public class RecipeServiceImplementation implements RecipeService {
             response.setMessage("Essa receita não existe!");
 
             return ResponseEntity.badRequest().body(response);
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setMessage(e.getMessage());
+            response.setData(e.getLocalizedMessage());
+
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @Override
+    public ResponseEntity<ResponseDto> addCommentToRecipe(Long userId, Long recipeId, RecipeReviewDto reviewDto) {
+        ResponseDto response = new ResponseDto();
+
+        try {
+            if (userRepository.existsById(userId) && recipeRepository.existsById(recipeId)) {
+                Review reviewCreated = recipeMethods.reviewCreation(reviewDto, userId);
+                Recipe recipe = recipeRepository.getReferenceById(recipeId);
+                Set<Review> reviews = recipe.getReviews();
+
+                reviews.add(reviewCreated);
+                recipe.setReviews(reviews);
+
+                Recipe recipeCreated = recipeRepository.save(recipe);
+
+                response.setSuccess(true);
+                response.setMessage("Avaliação criada com êxito!");
+                response.setData(recipeCreated);
+
+                URI uri = URI.create(ServletUriComponentsBuilder
+                        .fromCurrentContextPath()
+                        .path(ApiPaths.ADD_COMMENT_TO_RECIPE)
+                        .toUriString()
+                );
+
+                return ResponseEntity.created(uri).body(response);
+            } else {
+                response.setSuccess(false);
+                response.setMessage("Usuário e/ou receita informado não existem.");
+
+                return ResponseEntity.badRequest().body(response);
+            }
         } catch (Exception e) {
             response.setSuccess(false);
             response.setMessage(e.getMessage());
