@@ -108,6 +108,7 @@ public class AuthServiceImplementation implements AuthService {
             user.setUsername(signupDto.getEmail());
             user.setFullName(signupDto.getFullName());
             user.setPhoneNumber(signupDto.getPhoneNumber());
+            user.setDateOfBirth(signupDto.getDateOfBirth());
             user.setPassword(passwordEncoder.encode(signupDto.getPassword()));
 
             Role roles = roleRepository.findByName(RoleTypes.USER).get();

@@ -44,7 +44,6 @@ public class Recipe {
     @OneToMany(fetch = FetchType.EAGER)
     private List<Ingredient> ingredients;
 
-
     public Recipe(RecipeDto recipeDto) {
         this.category = recipeDto.getCategory();
         this.recipeTitle = recipeDto.getRecipeTitle();

@@ -43,7 +43,6 @@ public class RecipeMethods {
 
     private OffsetDateTime getRecipePublicationDate() {
         OffsetDateTime date = OffsetDateTime.now();
-
         return date.atZoneSameInstant(ZoneId.of("Z")).toOffsetDateTime();
     }
 
