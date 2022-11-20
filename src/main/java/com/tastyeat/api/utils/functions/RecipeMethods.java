@@ -29,7 +29,7 @@ public class RecipeMethods {
     @Autowired
     private IngredientRepository ingredientRepository;
     @Autowired
-    private CommomFunctions commomFunctions;
+    private CommonFunctions commonFunctions;
 
     public Recipe recipeCreation(RecipeDto recipeDto) {
         Recipe recipe = new Recipe(recipeDto);
@@ -39,7 +39,7 @@ public class RecipeMethods {
 
         recipe.setTags(tags);
         recipe.setIngredients(ingredients);
-        recipe.setPublicationDate(commomFunctions.getPublicationDate());
+        recipe.setPublicationDate(commonFunctions.getPublicationDate());
 
         return recipeRepository.save(recipe);
     }
@@ -49,7 +49,7 @@ public class RecipeMethods {
 
         review.setCommentContent(reviewDto.getCommentContent());
         review.setRecipeEvaluation(reviewDto.getRecipeEvaluation());
-        review.setPublicationDate(commomFunctions.getPublicationDate());
+        review.setPublicationDate(commonFunctions.getPublicationDate());
         review.setReviewAuthor(userRepository.findById(userId).orElseThrow(null));
 
         return reviewRepository.save(review);

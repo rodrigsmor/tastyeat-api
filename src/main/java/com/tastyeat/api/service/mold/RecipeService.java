@@ -8,5 +8,6 @@ import org.springframework.http.ResponseEntity;
 public interface RecipeService {
     ResponseEntity<ResponseDto> createRecipe(Long id, RecipeDto recipe);
     ResponseEntity<ResponseDto> getRecipe(Long recipeId);
-    ResponseEntity<ResponseDto> addCommentToRecipe(Long userId, Long recipeId, RecipeReviewDto reviewDto);
+    ResponseEntity<ResponseDto> addRecipeToFavorite(Long userId, Long recipeId);
+    ResponseEntity<ResponseDto> addReviewToRecipe(Long userId, Long recipeId, RecipeReviewDto reviewDto);
 }

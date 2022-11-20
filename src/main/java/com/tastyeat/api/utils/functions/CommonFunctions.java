@@ -8,7 +8,7 @@ import java.time.ZoneId;
 
 @Component
 @RequiredArgsConstructor
-public class CommomFunctions {
+public class CommonFunctions {
     public OffsetDateTime getPublicationDate() {
         OffsetDateTime date = OffsetDateTime.now();
         return date.atZoneSameInstant(ZoneId.of("Z")).toOffsetDateTime();

@@ -26,8 +26,13 @@ public class RecipeResource {
         return recipeService.createRecipe(id, recipe);
     }
 
-    @PostMapping(ApiPaths.ADD_COMMENT_TO_RECIPE)
-    public ResponseEntity<ResponseDto> addCommentToRecipe(@PathVariable Long userId, @PathVariable Long recipeId, @RequestBody RecipeReviewDto reviewDto) {
-        return recipeService.addCommentToRecipe(userId, recipeId, reviewDto);
+    @PostMapping(ApiPaths.ADD_REVIEW_TO_RECIPE)
+    public ResponseEntity<ResponseDto> addReviewToRecipe(@PathVariable Long userId, @PathVariable Long recipeId, @RequestBody RecipeReviewDto reviewDto) {
+        return recipeService.addReviewToRecipe(userId, recipeId, reviewDto);
+    }
+
+    @PutMapping(ApiPaths.ADD_RECIPE_TO_FAVORITES)
+    public ResponseEntity<ResponseDto> addRecipeToFavorites(@PathVariable Long userId, @PathVariable Long recipeId) {
+        return recipeService.addRecipeToFavorite(userId, recipeId);
     }
 }

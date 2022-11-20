@@ -1,8 +1,10 @@
 package com.tastyeat.api.service.implementation;
 
 import com.tastyeat.api.model.Recipe;
+import com.tastyeat.api.model.RecipeFavorite;
 import com.tastyeat.api.model.Review;
 import com.tastyeat.api.model.UserEntity;
+import com.tastyeat.api.repository.RecipeFavoriteRepository;
 import com.tastyeat.api.repository.RecipeRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.RecipeService;
@@ -31,6 +33,9 @@ import java.util.Set;
 public class RecipeServiceImplementation implements RecipeService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RecipeFavoriteRepository recipeFavoriteRepository;
 
     @Autowired
     private RecipeRepository recipeRepository;
@@ -101,7 +106,7 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public ResponseEntity<ResponseDto> addCommentToRecipe(Long userId, Long recipeId, RecipeReviewDto reviewDto) {
+    public ResponseEntity<ResponseDto> addReviewToRecipe(Long userId, Long recipeId, RecipeReviewDto reviewDto) {
         ResponseDto response = new ResponseDto();
 
         try {
@@ -121,11 +126,43 @@ public class RecipeServiceImplementation implements RecipeService {
 
                 URI uri = URI.create(ServletUriComponentsBuilder
                         .fromCurrentContextPath()
-                        .path(ApiPaths.ADD_COMMENT_TO_RECIPE)
+                        .path(ApiPaths.ADD_REVIEW_TO_RECIPE)
                         .toUriString()
                 );
 
                 return ResponseEntity.created(uri).body(response);
+            } else {
+                response.setSuccess(false);
+                response.setMessage("Usuário e/ou receita informado não existem.");
+
+                return ResponseEntity.badRequest().body(response);
+            }
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setMessage(e.getMessage());
+            response.setData(e.getLocalizedMessage());
+
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @Override
+    public ResponseEntity<ResponseDto> addRecipeToFavorite(Long userId, Long recipeId) {
+        ResponseDto response = new ResponseDto();
+
+        try {
+            if (userRepository.existsById(userId) && recipeRepository.existsById(recipeId)) {
+                UserEntity user = userRepository.getReferenceById(userId);
+                Recipe recipe = recipeRepository.getReferenceById(recipeId);
+                RecipeFavorite recipeFavoriteCreated = recipeFavoriteRepository.save(new RecipeFavorite(recipe));
+
+                user.getRecipeFavoritesList().add(recipeFavoriteCreated);
+
+                response.setSuccess(true);
+                response.setMessage("Receita adicionada aos favoritos!");
+                response.setData(userRepository.save(user));
+
+                return ResponseEntity.ok().body(response);
             } else {
                 response.setSuccess(false);
                 response.setMessage("Usuário e/ou receita informado não existem.");
