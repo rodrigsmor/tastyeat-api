@@ -4,7 +4,7 @@ import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.dto.RecipeDto;
 import com.tastyeat.api.utils.dto.RecipeReviewDto;
-import com.tastyeat.api.utils.dto.ResponseDto;
+import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -29,10 +29,5 @@ public class RecipeResource {
     @PostMapping(ApiPaths.ADD_REVIEW_TO_RECIPE)
     public ResponseEntity<ResponseDto> addReviewToRecipe(@PathVariable Long userId, @PathVariable Long recipeId, @RequestBody RecipeReviewDto reviewDto) {
         return recipeService.addReviewToRecipe(userId, recipeId, reviewDto);
-    }
-
-    @PutMapping(ApiPaths.ADD_RECIPE_TO_FAVORITES)
-    public ResponseEntity<ResponseDto> addRecipeToFavorites(@PathVariable Long userId, @PathVariable Long recipeId) {
-        return recipeService.addRecipeToFavorite(userId, recipeId);
     }
 }

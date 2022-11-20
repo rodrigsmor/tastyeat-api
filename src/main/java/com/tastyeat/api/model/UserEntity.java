@@ -62,5 +62,5 @@ public class UserEntity {
     private Collection<Review> reviews;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<RecipeFavorite> recipeFavoritesList;
+    private Set<FavoriteRecipe> favoriteRecipesList;
 }

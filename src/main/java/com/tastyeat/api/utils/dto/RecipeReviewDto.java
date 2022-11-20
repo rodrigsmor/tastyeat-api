@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class RecipeReviewDto {
-    private String commentContent;
     private Float recipeEvaluation;
+    private String commentContent;
 }

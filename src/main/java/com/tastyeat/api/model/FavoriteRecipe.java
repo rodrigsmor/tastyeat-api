@@ -1,28 +1,28 @@
 package com.tastyeat.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.tastyeat.api.model.Recipe;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RecipeFavorite {
+public class FavoriteRecipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Recipe recipe;
 
-    public RecipeFavorite(Recipe recipe) {
+    public FavoriteRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
 }

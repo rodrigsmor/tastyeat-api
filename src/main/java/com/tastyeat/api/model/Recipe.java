@@ -1,6 +1,5 @@
 package com.tastyeat.api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tastyeat.api.utils.constants.CategoriesTypes;
 import com.tastyeat.api.utils.dto.RecipeDto;
 import lombok.Data;
