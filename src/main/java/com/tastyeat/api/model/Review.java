@@ -20,7 +20,7 @@ public class Review {
     private Long id;
 
     @NotNull
-    private Float recipeEvaluation;
+    private Float recipeRating;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference

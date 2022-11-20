@@ -2,11 +2,9 @@ package com.tastyeat.api.utils.functions;
 
 import com.tastyeat.api.model.Ingredient;
 import com.tastyeat.api.model.Recipe;
-import com.tastyeat.api.model.Review;
 import com.tastyeat.api.model.Tag;
 import com.tastyeat.api.repository.*;
 import com.tastyeat.api.utils.dto.RecipeDto;
-import com.tastyeat.api.utils.dto.RecipeReviewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -42,17 +40,6 @@ public class RecipeMethods {
         recipe.setPublicationDate(commonFunctions.getPublicationDate());
 
         return recipeRepository.save(recipe);
-    }
-
-    public Review reviewCreation(RecipeReviewDto reviewDto, Long userId) {
-        Review review = new Review();
-
-        review.setCommentContent(reviewDto.getCommentContent());
-        review.setRecipeEvaluation(reviewDto.getRecipeEvaluation());
-        review.setPublicationDate(commonFunctions.getPublicationDate());
-        review.setReviewAuthor(userRepository.findById(userId).orElseThrow(null));
-
-        return reviewRepository.save(review);
     }
 
     private List<Ingredient> saveIngredients(List<Ingredient> ingredients) {

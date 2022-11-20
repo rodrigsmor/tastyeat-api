@@ -25,9 +25,4 @@ public class RecipeResource {
     public ResponseEntity<ResponseDto> createRecipe(@PathVariable Long id, @RequestBody RecipeDto recipe) {
         return recipeService.createRecipe(id, recipe);
     }
-
-    @PostMapping(ApiPaths.ADD_REVIEW_TO_RECIPE)
-    public ResponseEntity<ResponseDto> addReviewToRecipe(@PathVariable Long userId, @PathVariable Long recipeId, @RequestBody RecipeReviewDto reviewDto) {
-        return recipeService.addReviewToRecipe(userId, recipeId, reviewDto);
-    }
 }
