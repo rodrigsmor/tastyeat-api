@@ -4,6 +4,7 @@ import com.tastyeat.api.model.Recipe;
 import com.tastyeat.api.model.Review;
 import com.tastyeat.api.model.UserEntity;
 import com.tastyeat.api.repository.RecipeRepository;
+import com.tastyeat.api.repository.ReviewRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.ReviewService;
 import com.tastyeat.api.utils.constants.ApiPaths;
@@ -22,6 +23,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Data
@@ -39,17 +43,54 @@ public class ReviewServiceImplementation implements ReviewService {
     @Autowired
     private CommonFunctions commonFunctions;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
     ResponseDto response = new ResponseDto();
 
     @Autowired
     private ReviewMethods reviewMethods = new ReviewMethods();
 
     @Override
-    public ResponseEntity<ResponseDto> deleteRecipeReview(Authentication authentication, Long recipeId) {
+    public ResponseEntity<ResponseDto> deleteRecipeReview(Authentication authentication, Long reviewId) {
         try {
+            if (reviewRepository.existsById(reviewId)) {
+                UserEntity user = commonFunctions.getUserAuthenticated(authentication);
+                Review review = reviewRepository.getReferenceById(reviewId);
 
+                if (!reviewMethods.reviewBelongsToUser(user, review)) {
+                    response.setData(null);
+                    response.setSuccess(false);
+                    response.setMessage("A avaliação não pertence a seu usuário.");
+
+                    return ResponseEntity.badRequest().body(response);
+                }
+
+                Recipe recipe = recipeRepository.findByReviews(review);
+
+                user.getReviews().remove(review);
+                recipe.getReviews().remove(review);
+
+                reviewRepository.delete(review);
+
+                HashMap<String, Object> data = new HashMap<>();
+
+                data.put("User", userRepository.saveAndFlush(user));
+                data.put("Recipe", recipeRepository.save(recipe));
+
+                response.setData(data);
+                response.setSuccess(true);
+                response.setMessage("A sua avaliação foi excluída com êxito!");
+
+                return ResponseEntity.ok().body(response);
+            } else {
+                response.setSuccess(false);
+                response.setMessage("A avaliação selecionada não existe!");
+
+                return ResponseEntity.badRequest().body(response);
+            }
         } catch (Exception e) {
-
+            return commonFunctions.exceptionHandler(e, response);
         }
     }
 

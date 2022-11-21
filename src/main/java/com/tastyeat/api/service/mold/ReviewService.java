@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 
 public interface ReviewService {
-    ResponseEntity<ResponseDto> deleteRecipeReview(Authentication authentication, Long recipeId);
+    ResponseEntity<ResponseDto> deleteRecipeReview(Authentication authentication, Long reviewId);
     ResponseEntity<ResponseDto> deleteArticleReview(Authentication authentication, Long articleId);
     ResponseEntity<ResponseDto> editRecipeReview(Authentication authentication, Long recipeId, ReviewDto reviewDto);
     ResponseEntity<ResponseDto> addReviewToRecipe(Authentication authentication, Long recipeId, ReviewDto reviewDto);

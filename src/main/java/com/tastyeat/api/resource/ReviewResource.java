@@ -22,7 +22,7 @@ public class ReviewResource {
     }
 
     @DeleteMapping(ApiPaths.DELETE_RECIPE_REVIEW)
-    public ResponseEntity<ResponseDto> deleteRecipeReview(Authentication authentication, @PathVariable Long recipeId) {
-        return reviewService.deleteRecipeReview(authentication, recipeId);
+    public ResponseEntity<ResponseDto> deleteRecipeReview(Authentication authentication, @PathVariable Long reviewId) {
+        return reviewService.deleteRecipeReview(authentication, reviewId);
     }
 }
