@@ -57,9 +57,9 @@ public class UserEntity {
     )
     private Collection<Recipe> recipes;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private Collection<Review> reviews;
+//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JsonManagedReference
+//    private Collection<Review> reviews;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<FavoriteRecipe> favoriteRecipesList;

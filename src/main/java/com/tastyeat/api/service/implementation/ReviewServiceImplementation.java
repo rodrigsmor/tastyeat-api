@@ -68,7 +68,6 @@ public class ReviewServiceImplementation implements ReviewService {
 
                 Recipe recipe = recipeRepository.findByReviews(review);
 
-                user.getReviews().remove(review);
                 recipe.getReviews().remove(review);
 
                 reviewRepository.delete(review);
