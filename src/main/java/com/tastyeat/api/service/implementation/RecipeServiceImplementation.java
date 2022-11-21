@@ -2,12 +2,13 @@ package com.tastyeat.api.service.implementation;
 
 import com.tastyeat.api.model.Recipe;
 import com.tastyeat.api.model.UserEntity;
+import com.tastyeat.api.repository.FavoriteRecipeRepository;
 import com.tastyeat.api.repository.RecipeRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.dto.RecipeDto;
-import com.tastyeat.api.utils.dto.ResponseDto;
+import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import com.tastyeat.api.utils.functions.RecipeMethods;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,9 @@ import java.util.Optional;
 public class RecipeServiceImplementation implements RecipeService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private FavoriteRecipeRepository recipeFavoriteRepository;
 
     @Autowired
     private RecipeRepository recipeRepository;
@@ -79,7 +83,7 @@ public class RecipeServiceImplementation implements RecipeService {
 
                 response.setSuccess(true);
                 response.setMessage("Receita recuperada com êxito!");
-                response.setData(recipe.get());
+                response.setData(recipe.orElseThrow(null));
 
                 return ResponseEntity.ok().body(response);
             }

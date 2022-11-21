@@ -9,7 +9,7 @@ import com.tastyeat.api.utils.config.JwtGenerator;
 import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.constants.RoleTypes;
 import com.tastyeat.api.utils.dto.LoginDto;
-import com.tastyeat.api.utils.dto.ResponseDto;
+import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import com.tastyeat.api.utils.dto.SignupDto;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
