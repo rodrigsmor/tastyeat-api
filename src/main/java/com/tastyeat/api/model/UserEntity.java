@@ -40,6 +40,8 @@ public class UserEntity {
 
     private String password;
 
+    private String profession;
+
     @Column(unique = true)
     private String phoneNumber;
 
@@ -56,10 +58,6 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "recipe_id", referencedColumnName = "id")
     )
     private Collection<Recipe> recipes;
-
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JsonManagedReference
-//    private Collection<Review> reviews;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<FavoriteRecipe> favoriteRecipesList;
