@@ -8,6 +8,7 @@ import com.tastyeat.api.repository.ReviewRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.ReviewService;
 import com.tastyeat.api.utils.constants.ApiPaths;
+import com.tastyeat.api.utils.dto.payloads.RecipeResponseDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import com.tastyeat.api.utils.dto.requests.ReviewDto;
 import com.tastyeat.api.utils.functions.CommonFunctions;
@@ -74,8 +75,8 @@ public class ReviewServiceImplementation implements ReviewService {
 
                 HashMap<String, Object> data = new HashMap<>();
 
-                data.put("User", userRepository.saveAndFlush(user));
-                data.put("Recipe", recipeRepository.save(recipe));
+//                data.put("User", userRepository.saveAndFlush(user));
+                data.put("Recipe", new RecipeResponseDto(recipeRepository.save(recipe)));
 
                 response.setData(data);
                 response.setSuccess(true);
@@ -120,7 +121,7 @@ public class ReviewServiceImplementation implements ReviewService {
 
                 response.setSuccess(false);
                 response.setMessage("Avaliação criada com êxito!");
-                response.setData(recipeCreated);
+                response.setData(new RecipeResponseDto(recipeCreated));
 
                 URI uri = URI.create(ServletUriComponentsBuilder
                         .fromCurrentContextPath()

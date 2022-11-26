@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -45,7 +46,7 @@ public class Recipe {
     private List<Ingredient> ingredients;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
-    private Set<Review> reviews;
+     private Set<Review> reviews = new HashSet<>();
 
     public Recipe(RecipeDto recipeDto) {
         this.category = recipeDto.getCategory();
