@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -60,5 +61,5 @@ public class UserEntity {
     private Collection<Recipe> recipes;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<FavoriteRecipe> favoriteRecipesList;
+    private Set<FavoriteRecipe> favoriteRecipesList = new HashSet<>();
 }
