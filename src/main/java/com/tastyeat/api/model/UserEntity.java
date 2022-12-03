@@ -1,6 +1,7 @@
 package com.tastyeat.api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -55,11 +56,13 @@ public class UserEntity {
     private Collection<Role> roles = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     @JoinTable(name = "users_recipes", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "recipe_id", referencedColumnName = "id")
     )
-    private Collection<Recipe> recipes;
+    private Collection<Recipe> recipes = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Set<FavoriteRecipe> favoriteRecipesList = new HashSet<>();
 }
