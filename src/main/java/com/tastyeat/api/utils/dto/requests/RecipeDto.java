@@ -1,4 +1,4 @@
-package com.tastyeat.api.utils.dto;
+package com.tastyeat.api.utils.dto.requests;
 
 import com.tastyeat.api.model.Ingredient;
 import com.tastyeat.api.model.Tag;

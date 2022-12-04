@@ -1,7 +1,7 @@
 package com.tastyeat.api.model;
 
 import com.tastyeat.api.utils.constants.CategoriesTypes;
-import com.tastyeat.api.utils.dto.RecipeDto;
+import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

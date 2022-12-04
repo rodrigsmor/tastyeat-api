@@ -2,8 +2,7 @@ package com.tastyeat.api.resource;
 
 import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
-import com.tastyeat.api.utils.dto.RecipeDto;
-import com.tastyeat.api.utils.dto.RecipeReviewDto;
+import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

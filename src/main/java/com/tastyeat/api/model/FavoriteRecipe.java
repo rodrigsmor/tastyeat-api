@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
 
 @Entity
 @Setter
@@ -21,6 +23,9 @@ public class FavoriteRecipe {
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Recipe recipe;
+
+    @NotNull
+    private OffsetDateTime additionDate;
 
     public FavoriteRecipe(Recipe recipe) {
         this.recipe = recipe;

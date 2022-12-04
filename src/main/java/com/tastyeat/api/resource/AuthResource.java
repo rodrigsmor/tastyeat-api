@@ -2,8 +2,8 @@ package com.tastyeat.api.resource;
 
 import com.tastyeat.api.service.mold.AuthService;
 import com.tastyeat.api.utils.constants.ApiPaths;
-import com.tastyeat.api.utils.dto.LoginDto;
-import com.tastyeat.api.utils.dto.SignupDto;
+import com.tastyeat.api.utils.dto.requests.LoginDto;
+import com.tastyeat.api.utils.dto.requests.SignupDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

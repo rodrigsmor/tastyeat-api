@@ -1,6 +1,6 @@
 package com.tastyeat.api.service.mold;
 
-import com.tastyeat.api.utils.dto.RecipeDto;
+import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import org.springframework.http.ResponseEntity;
 
