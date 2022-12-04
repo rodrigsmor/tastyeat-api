@@ -1,4 +1,4 @@
-package com.tastyeat.api.utils.dto;
+package com.tastyeat.api.utils.dto.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -4,7 +4,7 @@ import com.tastyeat.api.model.Ingredient;
 import com.tastyeat.api.model.Recipe;
 import com.tastyeat.api.model.Tag;
 import com.tastyeat.api.repository.*;
-import com.tastyeat.api.utils.dto.RecipeDto;
+import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

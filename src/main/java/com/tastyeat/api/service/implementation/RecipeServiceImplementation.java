@@ -7,7 +7,7 @@ import com.tastyeat.api.repository.RecipeRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
-import com.tastyeat.api.utils.dto.RecipeDto;
+import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import com.tastyeat.api.utils.dto.payloads.RecipeResponseDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import com.tastyeat.api.utils.functions.RecipeMethods;
@@ -23,7 +23,6 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Data
