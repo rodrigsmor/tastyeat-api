@@ -47,7 +47,7 @@ public class Recipe {
     private List<Ingredient> ingredients = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
-     private Set<Review> reviews = new HashSet<>();
+    private Set<Review> reviews = new HashSet<>();
 
     public Recipe(RecipeDto recipeDto) {
         this.category = recipeDto.getCategory();

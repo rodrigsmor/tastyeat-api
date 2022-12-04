@@ -1,7 +1,9 @@
 package com.tastyeat.api.model;
 
 import com.tastyeat.api.utils.constants.RoleTypes;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

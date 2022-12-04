@@ -53,7 +53,7 @@ class RecipeStatistics {
     public RecipeStatistics(Set<Review> reviews) {
         this.totalReviewsAmount = getReviewsAmountIfNotNull(reviews);
 
-        for (int index = 0; index <= 5; index++) {
+        for (int index = 1; index <= 5; index++) {
             this.ratings.add(new Rating(reviews, index, this.totalReviewsAmount));
         }
     }
