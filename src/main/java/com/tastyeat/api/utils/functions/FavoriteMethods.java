@@ -1,18 +1,22 @@
 package com.tastyeat.api.utils.functions;
 
 import com.tastyeat.api.model.FavoriteRecipe;
+import com.tastyeat.api.model.Recipe;
 import com.tastyeat.api.model.UserEntity;
 import com.tastyeat.api.repository.FavoriteRecipeRepository;
 import com.tastyeat.api.repository.RecipeRepository;
 import com.tastyeat.api.repository.UserRepository;
+import com.tastyeat.api.utils.dto.common.RecipeSummary;
+import com.tastyeat.api.utils.dto.payloads.FavoriteDto;
+import com.tastyeat.api.utils.dto.payloads.FavoriteRecipeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -47,5 +51,27 @@ public class FavoriteMethods {
         favoritesList.remove(favoriteRecipe);
 
         return favoritesList;
+    }
+
+    public FavoriteDto createRecipeFavoriteDto(UserEntity user) {
+        FavoriteDto favoriteDto = new FavoriteDto(user);
+        Set<FavoriteRecipeResponse> favoriteList = new HashSet<>();
+
+        user.getFavoriteRecipesList().forEach(favoriteRecipe -> {
+            RecipeSummary recipeSummary = new RecipeSummary(
+                    favoriteRecipe.getRecipe(),
+                    userRepository.findByRecipes(favoriteRecipe.getRecipe()),
+                    retrieveFavoriteAmount(favoriteRecipe.getRecipe().getId())
+            );
+
+            favoriteList.add(new FavoriteRecipeResponse(favoriteRecipe.getId(), recipeSummary));
+        });
+
+        favoriteDto.setFavoriteRecipes(favoriteList);
+        return favoriteDto;
+    }
+
+    private Long retrieveFavoriteAmount(Long recipeId) {
+        return userRepository.getAmountFavoriteRecipesList(recipeId);
     }
 }

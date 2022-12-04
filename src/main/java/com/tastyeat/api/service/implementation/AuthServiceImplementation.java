@@ -11,6 +11,7 @@ import com.tastyeat.api.utils.constants.RoleTypes;
 import com.tastyeat.api.utils.dto.LoginDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import com.tastyeat.api.utils.dto.SignupDto;
+import com.tastyeat.api.utils.dto.payloads.UserLoggedDto;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -105,6 +106,8 @@ public class AuthServiceImplementation implements AuthService {
 
             UserEntity user = new UserEntity();
 
+            user.setBio("");
+            user.setProfession("");
             user.setUsername(signupDto.getEmail());
             user.setFullName(signupDto.getFullName());
             user.setPhoneNumber(signupDto.getPhoneNumber());
@@ -116,7 +119,7 @@ public class AuthServiceImplementation implements AuthService {
 
             response.setSuccess(true);
             response.setMessage("Perfil criado com sucesso!");
-            response.setData(userRepository.save(user));
+            response.setData(new UserLoggedDto(userRepository.save(user)));
 
             URI uri = URI.create(ServletUriComponentsBuilder
                     .fromCurrentContextPath()

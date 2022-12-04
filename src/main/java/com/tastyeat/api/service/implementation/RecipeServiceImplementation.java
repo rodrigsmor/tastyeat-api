@@ -8,6 +8,7 @@ import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.dto.RecipeDto;
+import com.tastyeat.api.utils.dto.payloads.RecipeResponseDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import com.tastyeat.api.utils.functions.RecipeMethods;
 import lombok.Data;
@@ -20,7 +21,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Data
 @Service
@@ -53,8 +57,10 @@ public class RecipeServiceImplementation implements RecipeService {
 
             user.setRecipes(recipes);
 
+            List<Recipe> recipeSaved = userRepository.save(user).getRecipes().stream().filter(recipeStream -> recipeStream.getId().equals(recipeCreated.getId())).collect(Collectors.toList());
+
             response.setSuccess(true);
-            response.setData(userRepository.save(user).getRecipes().stream().filter(recipeStream -> recipeStream.getId().equals(recipeCreated.getId())));
+            response.setData(new RecipeResponseDto(recipeSaved.get(0)));
             response.setMessage("Receita criada com sucesso!");
 
             URI uri = URI.create(ServletUriComponentsBuilder
@@ -83,7 +89,7 @@ public class RecipeServiceImplementation implements RecipeService {
 
                 response.setSuccess(true);
                 response.setMessage("Receita recuperada com êxito!");
-                response.setData(recipe.orElseThrow(null));
+                response.setData(new RecipeResponseDto(recipe.orElseThrow(null)));
 
                 return ResponseEntity.ok().body(response);
             }

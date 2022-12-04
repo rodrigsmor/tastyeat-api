@@ -1,7 +1,7 @@
 package com.tastyeat.api.model;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -35,10 +36,14 @@ public class UserEntity {
 
     private String fullName;
 
+    @NotNull
     @Column(columnDefinition = "varchar(150)")
-    private String bio;
+    private String bio = "";
 
     private String password;
+
+    @NotNull
+    private String profession = "";
 
     @Column(unique = true)
     private String phoneNumber;
@@ -52,15 +57,13 @@ public class UserEntity {
     private Collection<Role> roles = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     @JoinTable(name = "users_recipes", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "recipe_id", referencedColumnName = "id")
     )
-    private Collection<Recipe> recipes;
-
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JsonManagedReference
-//    private Collection<Review> reviews;
+    private Collection<Recipe> recipes = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<FavoriteRecipe> favoriteRecipesList;
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    private Set<FavoriteRecipe> favoriteRecipesList = new HashSet<>();
 }

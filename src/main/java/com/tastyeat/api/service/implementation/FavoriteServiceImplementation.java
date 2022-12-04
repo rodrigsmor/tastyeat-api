@@ -50,7 +50,7 @@ public class FavoriteServiceImplementation implements FavoriteService {
 
                 response.setSuccess(true);
                 response.setMessage("Receita adicionada aos favoritos.");
-                response.setData(userRepository.save(user));
+                response.setData(favoriteMethods.createRecipeFavoriteDto(userRepository.save(user)));
 
                 return ResponseEntity.ok().body(response);
             } else {
