@@ -36,12 +36,14 @@ public class UserEntity {
 
     private String fullName;
 
+    @NotNull
     @Column(columnDefinition = "varchar(150)")
-    private String bio;
+    private String bio = "";
 
     private String password;
 
-    private String profession;
+    @NotNull
+    private String profession = "";
 
     @Column(unique = true)
     private String phoneNumber;

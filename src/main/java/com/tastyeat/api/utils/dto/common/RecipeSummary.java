@@ -14,11 +14,11 @@ public class RecipeSummary {
     private Float rating;
     private String recipeTitle;
     private AuthorModel author;
-    private Integer favoriteAmount;
+    private Long favoriteAmount;
     private Integer ingredientsAmount;
     private String averageCookingTime;
 
-    public RecipeSummary(Recipe recipe, UserEntity author, Integer favoriteAmount) {
+    public RecipeSummary(Recipe recipe, UserEntity author, Long favoriteAmount) {
         this.id = recipe.getId();
         this.favoriteAmount = favoriteAmount;
         this.author = new AuthorModel(author);

@@ -106,6 +106,8 @@ public class AuthServiceImplementation implements AuthService {
 
             UserEntity user = new UserEntity();
 
+            user.setBio("");
+            user.setProfession("");
             user.setUsername(signupDto.getEmail());
             user.setFullName(signupDto.getFullName());
             user.setPhoneNumber(signupDto.getPhoneNumber());

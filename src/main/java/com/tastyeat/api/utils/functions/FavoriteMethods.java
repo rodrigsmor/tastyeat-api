@@ -61,18 +61,17 @@ public class FavoriteMethods {
             RecipeSummary recipeSummary = new RecipeSummary(
                     favoriteRecipe.getRecipe(),
                     userRepository.findByRecipes(favoriteRecipe.getRecipe()),
-                    retrieveFavoriteAmount(favoriteRecipe.getRecipe())
+                    retrieveFavoriteAmount(favoriteRecipe.getRecipe().getId())
             );
 
             favoriteList.add(new FavoriteRecipeResponse(favoriteRecipe.getId(), recipeSummary));
         });
 
         favoriteDto.setFavoriteRecipes(favoriteList);
-
         return favoriteDto;
     }
 
-    private Integer retrieveFavoriteAmount(Recipe recipe) {
-        return userRepository.findAllByFavoriteRecipesList(recipe).size();
+    private Long retrieveFavoriteAmount(Long recipeId) {
+        return userRepository.getAmountFavoriteRecipesList(recipeId);
     }
 }
