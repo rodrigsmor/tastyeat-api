@@ -44,7 +44,11 @@ public class FavoriteServiceImplementation implements FavoriteService {
             if (recipeRepository.existsById(recipeId)) {
                 Recipe recipe = recipeRepository.getReferenceById(recipeId);
                 UserEntity user = commonFunctions.getUserAuthenticated(authentication);
-                FavoriteRecipe recipeFavoriteCreated = recipeFavoriteRepository.save(new FavoriteRecipe(recipe));
+
+                FavoriteRecipe favoriteRecipe = new FavoriteRecipe(recipe);
+                favoriteRecipe.setAdditionDate(commonFunctions.getPublicationDate());
+
+                FavoriteRecipe recipeFavoriteCreated = recipeFavoriteRepository.save(favoriteRecipe);
 
                 user.getFavoriteRecipesList().add(recipeFavoriteCreated);
 

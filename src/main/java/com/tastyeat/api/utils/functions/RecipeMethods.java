@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -58,5 +59,14 @@ public class RecipeMethods {
         }
 
         return tags;
+    }
+
+    public static Float calculateRecipeRating(Recipe recipe) {
+        List<Float> ratings = new ArrayList<>();
+
+        recipe.getReviews().forEach(review -> ratings.add(review.getRecipeRating()));
+        Float reviewsSum = ratings.stream().reduce(0f, Float::sum);
+
+        return reviewsSum / ratings.size();
     }
 }
