@@ -43,6 +43,8 @@ public class UserServiceImplementation implements UserService {
 
         try {
             UserEntity user = commonFunctions.getUserAuthenticated(authentication);
+            firebaseConfig.deleteOldProfilePicture(user);
+
             HashMap<String, Object> uploadedImage = firebaseConfig.uploadImage(file);
 
             if (!(Boolean) uploadedImage.get("success")) {

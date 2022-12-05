@@ -6,6 +6,7 @@ import com.google.cloud.storage.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.StorageClient;
+import com.tastyeat.api.model.UserEntity;
 import com.tastyeat.api.utils.functions.CommonFunctions;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,9 @@ public class FirebaseConfig {
 
     @Value("${SERVICE_ACCOUNT_KEY}")
     private String SERVICE_ACCOUNT_PATH;
+
+    @Value("${FIREBASE_STORAGE_PROJECT_ID}")
+    private String FIREBASE_STORAGE_PROJECT_ID;
 
     @Autowired
     private CommonFunctions commonFunctions;
@@ -70,6 +74,24 @@ public class FirebaseConfig {
             response.put("success", false);
             response.put("Exception", e);
             return response;
+        }
+    }
+
+    public void deleteOldProfilePicture(UserEntity user) throws IOException {
+        String oldImageUrl = user.getProfilePicture().getImageUrl();
+
+        if (!(oldImageUrl.isBlank() || oldImageUrl.isEmpty())) {
+            String objectName = oldImageUrl
+                    .replace("https://firebasestorage.googleapis.com/v0/b/tastyeat-cd536.appspot.com/o/", "")
+                    .replace("?alt=media", "");
+
+            Storage storage = StorageOptions.newBuilder().setProjectId(FIREBASE_STORAGE_PROJECT_ID).build().getService();
+            Blob blob = storage.get(FIREBASE_BUCKET_NAME, objectName);
+
+            Storage.BlobSourceOption precondition =
+                    Storage.BlobSourceOption.generationMatch(blob.getGeneration());
+
+            storage.delete(FIREBASE_BUCKET_NAME, objectName, precondition);
         }
     }
 
