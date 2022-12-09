@@ -42,6 +42,9 @@ public class UserEntity {
 
     private String password;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Image profilePicture;
+
     @NotNull
     private String profession = "";
 
@@ -49,6 +52,7 @@ public class UserEntity {
     private String phoneNumber;
 
     private LocalDate dateOfBirth;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),

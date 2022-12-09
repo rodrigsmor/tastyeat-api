@@ -1,5 +1,6 @@
 package com.tastyeat.api.utils.dto.payloads;
 
+import com.tastyeat.api.model.Image;
 import com.tastyeat.api.model.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class UserLoggedDto {
     private String fullName;
     private String profession;
     private String phoneNumber;
+    private Image profilePicture;
     private LocalDate dateOfBirth;
 
     public UserLoggedDto(UserEntity user) {
@@ -29,5 +31,6 @@ public class UserLoggedDto {
         this.profession = user.getProfession();
         this.phoneNumber = user.getPhoneNumber();
         this.dateOfBirth = user.getDateOfBirth();
+        this.profilePicture = user.getProfilePicture();
     }
 }

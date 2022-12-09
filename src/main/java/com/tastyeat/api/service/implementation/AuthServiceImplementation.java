@@ -1,7 +1,9 @@
 package com.tastyeat.api.service.implementation;
 
+import com.tastyeat.api.model.Image;
 import com.tastyeat.api.model.Role;
 import com.tastyeat.api.model.UserEntity;
+import com.tastyeat.api.repository.ImageRepository;
 import com.tastyeat.api.repository.RoleRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.AuthService;
@@ -48,6 +50,9 @@ public class AuthServiceImplementation implements AuthService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ImageRepository imageRepository;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -106,12 +111,13 @@ public class AuthServiceImplementation implements AuthService {
 
             UserEntity user = new UserEntity();
 
-            user.setBio("");
-            user.setProfession("");
+            user.setBio(user.getBio());
             user.setUsername(signupDto.getEmail());
+            user.setProfession(user.getProfession());
             user.setFullName(signupDto.getFullName());
             user.setPhoneNumber(signupDto.getPhoneNumber());
             user.setDateOfBirth(signupDto.getDateOfBirth());
+            user.setProfilePicture(imageRepository.save(new Image()));
             user.setPassword(passwordEncoder.encode(signupDto.getPassword()));
 
             Role roles = roleRepository.findByName(RoleTypes.USER).get();
