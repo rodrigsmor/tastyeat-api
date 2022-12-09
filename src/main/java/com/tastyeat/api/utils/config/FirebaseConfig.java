@@ -9,6 +9,7 @@ import com.google.firebase.cloud.StorageClient;
 import com.tastyeat.api.model.UserEntity;
 import com.tastyeat.api.utils.functions.CommonFunctions;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,7 @@ import java.nio.file.Files;
 import java.util.HashMap;
 
 @Component
+@Slf4j
 @RequiredArgsConstructor
 public class FirebaseConfig {
     @Value("${FIREBASE_BUCKET_NAME}")
@@ -41,7 +43,7 @@ public class FirebaseConfig {
     @Autowired
     private CommonFunctions commonFunctions;
 
-    public void FirebaseConfig() throws IOException {
+    public void firebaseConfig() throws IOException {
         FileInputStream serviceAccount = new FileInputStream(SERVICE_ACCOUNT_PATH);
 
         FirebaseOptions options = FirebaseOptions.builder()
@@ -81,18 +83,27 @@ public class FirebaseConfig {
         String oldImageUrl = user.getProfilePicture().getImageUrl();
 
         if (!(oldImageUrl.isBlank() || oldImageUrl.isEmpty())) {
-            String objectName = oldImageUrl
-                    .replace("https://firebasestorage.googleapis.com/v0/b/tastyeat-cd536.appspot.com/o/", "")
-                    .replace("?alt=media", "");
+            String objectName = getObjectName(oldImageUrl);
 
-            Storage storage = StorageOptions.newBuilder().setProjectId(FIREBASE_STORAGE_PROJECT_ID).build().getService();
-            Blob blob = storage.get(FIREBASE_BUCKET_NAME, objectName);
+            log.info(objectName);
+
+            Credentials credentials = GoogleCredentials.fromStream(new FileInputStream(SERVICE_ACCOUNT_PATH));
+
+            Storage storage = StorageOptions.newBuilder().setCredentials(credentials).setProjectId(FIREBASE_BUCKET_NAME).build().getService();
+
+            Blob blob = storage.get(BlobId.of(FIREBASE_BUCKET_NAME, objectName));
 
             Storage.BlobSourceOption precondition =
                     Storage.BlobSourceOption.generationMatch(blob.getGeneration());
 
             storage.delete(FIREBASE_BUCKET_NAME, objectName, precondition);
         }
+    }
+
+    private String getObjectName(String oldImageUrl) {
+        return oldImageUrl
+                .replace("https://firebasestorage.googleapis.com/v0/b/tastyeat-cd536.appspot.com/o/", "")
+                .replace("?alt=media", "");
     }
 
     private String uploadFile(File file, String filename) throws IOException {

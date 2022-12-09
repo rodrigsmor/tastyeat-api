@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 @Component
@@ -33,10 +34,10 @@ public class CommonFunctions {
     }
 
     public String formatFileName(MultipartFile file) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         String random = UUID.randomUUID().toString().replaceAll("_", "");
 
-        int separator = file.getOriginalFilename().lastIndexOf(".");
+        int separator = Objects.requireNonNull(file.getOriginalFilename()).lastIndexOf(".");
 
         String filename = file.getOriginalFilename().substring(0, separator);
         String filetype = file.getOriginalFilename().substring(separator + 1);
@@ -47,7 +48,7 @@ public class CommonFunctions {
     public ResponseEntity<ResponseDto> exceptionHandler(Exception e, ResponseDto response) {
         response.setSuccess(false);
         response.setMessage(e.getMessage());
-        response.setData(e.getCause().getMessage());
+        response.setData(e.getLocalizedMessage());
 
         return ResponseEntity.internalServerError().body(response);
     }
