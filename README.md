@@ -1,25 +1,69 @@
-<hr />
 <center>
-  <img src="https://i.ibb.co/4MP7ZRx/Logo.png" alt="logo da tastyeat"/>
+  <img src="https://i.ibb.co/4MP7ZRx/Logo.png" alt="logo da tastyeat" width="30%" height="auto"/>
+  <hr />
+  <h1 align="center">TastyEat: Food Recipe Sharing Web Application API</h1>
+  <p>This API provides the services of the TastyEat recipe sharing web application, implementing features such as registration, authentication, authorization, creation of recipes and User customization.</p>
+  🍔
+  <br/>
+  <center>
+    <img src="https://img.shields.io/static/v1?label=version&message=v0.0.1&color=EB8713&style=for-the-badge&logo=git&logoColor=EB8713&labelColor=FEF6EE">
+  <a href="https://github.com/rodrigsmor/tastyeat-api/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/rodrigsmor/tastyeat-api?style=for-the-badge&color=eb6013&labelColor=ebc1a9">
+  </a>
+  <a href="https://github.com/rodrigsmor/tastyeat-api/network/members">
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/rodrigsmor/tastyeat-api?style=for-the-badge&color=eb3a13&labelColor=faeae6">
+  </a>
+  <a href="https://github.com/rodrigsmor/tastyeat-api/stargazers">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/rodrigsmor/tastyeat-api?style=for-the-badge&labelColor=fff7db&color=ffc90b">
+  </a>
+  </center>
 </center>
+<hr />
+
+## 📙 Table of Contents 📙
+
+- [📋 About the project](#about)
+- [⚙️ Features](#features)
+- [📥 How to install](#how-to-install)
+- [🔧 How to test](#how-to-test)
+- [🔍 Documentation](#doc)
+- [👤 Author](#author)
+
 <hr/>
 <div style="text-align: center;">
-  <img alt="" src="https://i.ibb.co/GWFFSf1/Cover-Thumbnail-1.png" />
+  <img alt="" src="https://i.ibb.co/GWFFSf1/Cover-Thumbnail-1.png" />
 </div>
 <hr/>
 
-<br/>
-<br/>
+## 📋 About the project
 
-<img src="https://img.shields.io/static/v1?label=Progresso&message=30%&color=150216&style=for-the-badge&labelColor=663a68">
-  <img src="https://img.shields.io/static/v1?label=NPM&message=v0.0.1&color=3e2f4c&style=for-the-badge&logo=git&logoColor=3e2f4c&labelColor=9a8ba8">
-  <a href="https://github.com/RodrigoMoreiraDaSilva/Jogo-Da-Cobrinha/issues">
-    <img alt="GitHub issues" src="https://img.shields.io/github/issues/RodrigoMoreiraDaSilva/Jogo-Da-Cobrinha?style=for-the-badge&color=b70c84&labelColor=c16aa3">
-  </a>
-  <a href="https://github.com/RodrigoMoreiraDaSilva/Jogo-Da-Cobrinha/network">
-    <img alt="GitHub forks" src="https://img.shields.io/github/forks/RodrigoMoreiraDaSilva/Jogo-Da-Cobrinha?style=for-the-badge&color=141296&labelColor=5151cc">
-  </a>
-  <a href="https://github.com/RodrigoMoreiraDaSilva/Jogo-Da-Cobrinha/stargazers">
-    <img alt="GitHub stars" src="https://img.shields.io/github/stars/RodrigoMoreiraDaSilva/Jogo-Da-Cobrinha?style=for-the-badge&labelColor=945dd3&color=7214e5">
-  </a>
-<h1>TastyEat: Food Recipe Sharing Web Application API</h1>
+- ### Description
+
+Tabela:
+
+<center>
+  <hr />
+  <h4>ℹ️ informations ℹ️</h4>
+
+  <table>
+    <tr>
+      <th>Tool</th>
+      <th>version</th>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>Spring</td>
+      <td>2.7.5</td>
+    </tr>
+    <tr>
+      <td>Maven</td>
+      <td>4.0.0</td>
+    </tr>
+  </table>
+</center>
+
+<br/>
+<br/>
