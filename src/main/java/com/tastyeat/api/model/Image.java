@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -24,5 +21,6 @@ public class Image {
     private String altText = "";
 
     @NotNull
+    @Column(columnDefinition = "varchar(2048)")
     private String imageUrl = "";
 }
