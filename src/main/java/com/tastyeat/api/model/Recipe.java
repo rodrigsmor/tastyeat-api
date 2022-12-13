@@ -33,6 +33,8 @@ public class Recipe {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Tag> tags;
+
+    @Column(columnDefinition = "TEXT")
     private String howToPrepare;
     private String averageCookingTime;
 
@@ -48,6 +50,9 @@ public class Recipe {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<Review> reviews = new HashSet<>();
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Image recipeCover;
 
     public Recipe(RecipeDto recipeDto) {
         this.category = recipeDto.getCategory();
