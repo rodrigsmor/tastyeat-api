@@ -10,12 +10,14 @@ import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import com.tastyeat.api.utils.dto.payloads.RecipeResponseDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
+import com.tastyeat.api.utils.functions.CommonFunctions;
 import com.tastyeat.api.utils.functions.RecipeMethods;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -40,14 +42,45 @@ public class RecipeServiceImplementation implements RecipeService {
     private RecipeRepository recipeRepository;
 
     @Autowired
+    private CommonFunctions commonFunctions;
+
+    @Autowired
     private RecipeMethods recipeMethods = new RecipeMethods();
 
     @Override
-    public ResponseEntity<ResponseDto> createRecipe(Long id, RecipeDto recipe) {
+    public ResponseEntity<ResponseDto> getRecipe(Long recipeId) {
         ResponseDto response = new ResponseDto();
 
         try {
-            UserEntity user = userRepository.getReferenceById(id);
+            if (recipeRepository.existsById(recipeId)) {
+                Optional<Recipe> recipe = recipeRepository.findById(recipeId);
+
+                response.setSuccess(true);
+                response.setMessage("Receita recuperada com êxito!");
+                response.setData(new RecipeResponseDto(recipe.orElseThrow(null)));
+
+                return ResponseEntity.ok().body(response);
+            }
+
+            response.setSuccess(false);
+            response.setMessage("Essa receita não existe!");
+
+            return ResponseEntity.badRequest().body(response);
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setMessage(e.getMessage());
+            response.setData(e.getLocalizedMessage());
+
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @Override
+    public ResponseEntity<ResponseDto> createRecipe(Authentication authentication, RecipeDto recipe) {
+        ResponseDto response = new ResponseDto();
+
+        try {
+            UserEntity user = commonFunctions.getUserAuthenticated(authentication);
             Collection<Recipe> recipes = user.getRecipes();
 
             Recipe recipeCreated = recipeMethods.recipeCreation(recipe);
@@ -69,34 +102,6 @@ public class RecipeServiceImplementation implements RecipeService {
             );
 
             return ResponseEntity.created(uri).body(response);
-        } catch (Exception e) {
-            response.setSuccess(false);
-            response.setMessage(e.getMessage());
-            response.setData(e.getLocalizedMessage());
-
-            return ResponseEntity.internalServerError().body(response);
-        }
-    }
-
-    @Override
-    public ResponseEntity<ResponseDto> getRecipe(Long recipeId) {
-        ResponseDto response = new ResponseDto();
-        
-        try {
-            if (recipeRepository.existsById(recipeId)) {
-                Optional<Recipe> recipe = recipeRepository.findById(recipeId);
-
-                response.setSuccess(true);
-                response.setMessage("Receita recuperada com êxito!");
-                response.setData(new RecipeResponseDto(recipe.orElseThrow(null)));
-
-                return ResponseEntity.ok().body(response);
-            }
-
-            response.setSuccess(false);
-            response.setMessage("Essa receita não existe!");
-
-            return ResponseEntity.badRequest().body(response);
         } catch (Exception e) {
             response.setSuccess(false);
             response.setMessage(e.getMessage());

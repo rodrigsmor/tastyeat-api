@@ -7,6 +7,7 @@ import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -21,7 +22,7 @@ public class RecipeResource {
     }
 
     @PostMapping(ApiPaths.CREATE_RECIPE)
-    public ResponseEntity<ResponseDto> createRecipe(@PathVariable Long id, @RequestBody RecipeDto recipe) {
-        return recipeService.createRecipe(id, recipe);
+    public ResponseEntity<ResponseDto> createRecipe(Authentication authentication, @RequestBody RecipeDto recipe) {
+        return recipeService.createRecipe(authentication, recipe);
     }
 }
