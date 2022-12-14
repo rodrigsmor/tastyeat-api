@@ -1,9 +1,9 @@
 package com.tastyeat.api.utils.dto.payloads;
 
-import com.tastyeat.api.model.Ingredient;
-import com.tastyeat.api.model.Recipe;
-import com.tastyeat.api.model.Review;
+import com.tastyeat.api.model.*;
 import com.tastyeat.api.utils.constants.CategoriesTypes;
+import com.tastyeat.api.utils.dto.common.AuthorModel;
+import com.tastyeat.api.utils.functions.RecipeMethods;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -19,9 +19,11 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class RecipeResponseDto {
     private Long id;
+    private Set<Tag> tags;
     private String recipeTitle;
     private String description;
     private String howToPrepare;
+    private Image recipeCover;
     private Set<Review> reviews;
     private CategoriesTypes category;
     private String averageCookingTime;
@@ -29,18 +31,26 @@ public class RecipeResponseDto {
     private List<Ingredient> ingredients;
     private RecipeStatistics statistics;
     private OffsetDateTime publicationDate;
+    private AuthorModel author;
+    private Float rating;
+    private Integer ingredientsAmount;
 
-    public RecipeResponseDto(Recipe recipe) {
+    public RecipeResponseDto(Recipe recipe, UserEntity author) {
         this.id = recipe.getId();
+        this.tags = recipe.getTags();
         this.reviews = recipe.getReviews();
         this.category = recipe.getCategory();
+        this.author = new AuthorModel(author);
         this.recipeTitle = recipe.getRecipeTitle();
+        this.recipeCover = recipe.getRecipeCover();
         this.ingredients = recipe.getIngredients();
         this.description = recipe.getDescription();
         this.howToPrepare = recipe.getHowToPrepare();
         this.estimatedPrice = recipe.getEstimatedPrice();
         this.publicationDate = recipe.getPublicationDate();
+        this.ingredientsAmount = recipe.getIngredients().size();
         this.averageCookingTime = recipe.getAverageCookingTime();
+        this.rating = RecipeMethods.calculateRecipeRating(recipe);
         this.statistics = new RecipeStatistics(recipe.getReviews());
     }
 }

@@ -4,7 +4,7 @@ public class ApiPaths {
     public static final String LOGIN = "/api/auth/login";
     public static final String SIGNUP = "/api/auth/signup";
     public static final String GET_RECIPE = "/api/recipe/{id}";
-    public static final String CREATE_RECIPE = "/api/user/recipe";
+    public static final String CREATE_RECIPE = "/api/auth/user/recipe";
     public static final String ADD_REVIEW_TO_RECIPE = "/api/auth/recipe/{recipeId}/review";
     public static final String ADD_RECIPE_TO_FAVORITES = "/api/auth/recipe/{recipeId}/favorite";
     public static final String USER_PROFILE_PICTURE_UPLOAD = "/api/auth/profile-picture/upload";

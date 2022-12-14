@@ -57,7 +57,7 @@ public class RecipeServiceImplementation implements RecipeService {
 
                 response.setSuccess(true);
                 response.setMessage("Receita recuperada com êxito!");
-                response.setData(new RecipeResponseDto(recipe.orElseThrow(null)));
+                response.setData(new RecipeResponseDto(recipe.orElseThrow(null), userRepository.findByRecipes(recipe.orElseThrow(null))));
 
                 return ResponseEntity.ok().body(response);
             }
@@ -92,7 +92,7 @@ public class RecipeServiceImplementation implements RecipeService {
             List<Recipe> recipeSaved = userRepository.save(user).getRecipes().stream().filter(recipeStream -> recipeStream.getId().equals(recipeCreated.getId())).collect(Collectors.toList());
 
             response.setSuccess(true);
-            response.setData(new RecipeResponseDto(recipeSaved.get(0)));
+            response.setData(new RecipeResponseDto(recipeSaved.get(0), userRepository.findByRecipes(recipeSaved.get(0))));
             response.setMessage("Receita criada com sucesso!");
 
             URI uri = URI.create(ServletUriComponentsBuilder

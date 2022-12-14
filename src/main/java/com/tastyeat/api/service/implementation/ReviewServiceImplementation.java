@@ -76,7 +76,7 @@ public class ReviewServiceImplementation implements ReviewService {
                 HashMap<String, Object> data = new HashMap<>();
 
 //                data.put("User", userRepository.saveAndFlush(user));
-                data.put("Recipe", new RecipeResponseDto(recipeRepository.save(recipe)));
+                data.put("Recipe", new RecipeResponseDto(recipeRepository.save(recipe), userRepository.findByRecipes(recipe)));
 
                 response.setData(data);
                 response.setSuccess(true);
@@ -121,7 +121,7 @@ public class ReviewServiceImplementation implements ReviewService {
 
                 response.setSuccess(false);
                 response.setMessage("Avaliação criada com êxito!");
-                response.setData(new RecipeResponseDto(recipeCreated));
+                response.setData(new RecipeResponseDto(recipeCreated, userRepository.findByRecipes(recipe)));
 
                 URI uri = URI.create(ServletUriComponentsBuilder
                         .fromCurrentContextPath()
