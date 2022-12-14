@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 
 public interface RecipeService {
+    ResponseEntity<ResponseDto> getRecentRecipes();
     ResponseEntity<ResponseDto> getRecipe(Long recipeId);
     ResponseEntity<ResponseDto> createRecipe(Authentication authentication, RecipeDto recipe);
 //    ResponseEntity<ResponseDto> deleteRecipe(Authentication authentication, Long recipeId);

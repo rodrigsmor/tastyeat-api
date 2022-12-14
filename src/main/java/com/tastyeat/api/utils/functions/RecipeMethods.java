@@ -67,6 +67,7 @@ public class RecipeMethods {
         recipe.getReviews().forEach(review -> ratings.add(review.getRecipeRating()));
         Float reviewsSum = ratings.stream().reduce(0f, Float::sum);
 
+        if (ratings.isEmpty()) return 0f;
         return reviewsSum / ratings.size();
     }
 }

@@ -7,10 +7,12 @@ import com.tastyeat.api.repository.RecipeRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
+import com.tastyeat.api.utils.dto.common.RecipeSummary;
 import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import com.tastyeat.api.utils.dto.payloads.RecipeResponseDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
 import com.tastyeat.api.utils.functions.CommonFunctions;
+import com.tastyeat.api.utils.functions.FavoriteMethods;
 import com.tastyeat.api.utils.functions.RecipeMethods;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -46,6 +49,30 @@ public class RecipeServiceImplementation implements RecipeService {
 
     @Autowired
     private RecipeMethods recipeMethods = new RecipeMethods();
+
+    @Autowired
+    private FavoriteMethods favoriteMethods;
+
+    @Override
+    public ResponseEntity<ResponseDto> getRecentRecipes() {
+        ResponseDto response = new ResponseDto();
+
+        try {
+            List<RecipeSummary> recipes = new ArrayList<>();
+
+            recipeRepository.getRecentRecipes().forEach(recipe -> {
+                recipes.add(new RecipeSummary(recipe, userRepository.findByRecipes(recipe), userRepository.getAmountFavoriteRecipesList(recipe.getId())));
+            });
+
+            response.setData(recipes);
+            response.setSuccess(true);
+            response.setMessage("Receitas recuperadas com êxito!");
+
+            return ResponseEntity.accepted().body(response);
+        } catch (Exception exception) {
+            return commonFunctions.exceptionHandler(exception, response);
+        }
+    }
 
     @Override
     public ResponseEntity<ResponseDto> getRecipe(Long recipeId) {
@@ -89,7 +116,7 @@ public class RecipeServiceImplementation implements RecipeService {
 
             user.setRecipes(recipes);
 
-            List<Recipe> recipeSaved = userRepository.save(user).getRecipes().stream().filter(recipeStream -> recipeStream.getId().equals(recipeCreated.getId())).collect(Collectors.toList());
+            List<Recipe> recipeSaved = userRepository.save(user).getRecipes().stream().filter(recipeStream -> recipeStream.getId().equals(recipeCreated.getId())).toList();
 
             response.setSuccess(true);
             response.setData(new RecipeResponseDto(recipeSaved.get(0), userRepository.findByRecipes(recipeSaved.get(0))));
