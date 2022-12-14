@@ -35,4 +35,9 @@ public class RecipeResource {
     public ResponseEntity<ResponseDto> createRecipe(Authentication authentication, @RequestBody RecipeDto recipe) {
         return recipeService.createRecipe(authentication, recipe);
     }
+
+    @DeleteMapping(ApiPaths.DELETE_RECIPE)
+    public ResponseEntity<ResponseDto> deleteRecipe(Authentication authentication, @PathVariable Long recipeId) {
+        return recipeService.deleteRecipe(authentication, recipeId);
+    }
 }

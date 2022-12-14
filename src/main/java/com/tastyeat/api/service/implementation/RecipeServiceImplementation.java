@@ -9,9 +9,9 @@ import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
 import com.tastyeat.api.utils.constants.CategoriesTypes;
 import com.tastyeat.api.utils.dto.common.RecipeSummary;
-import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import com.tastyeat.api.utils.dto.payloads.RecipeResponseDto;
 import com.tastyeat.api.utils.dto.payloads.ResponseDto;
+import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import com.tastyeat.api.utils.functions.CommonFunctions;
 import com.tastyeat.api.utils.functions.FavoriteMethods;
 import com.tastyeat.api.utils.functions.RecipeMethods;
@@ -21,12 +21,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Data
 @Service
@@ -156,6 +156,31 @@ public class RecipeServiceImplementation implements RecipeService {
 
             return ResponseEntity.ok().body(response);
         } catch(Exception exception) {
+            return commonFunctions.exceptionHandler(exception, response);
+        }
+    }
+
+    @Override
+    public ResponseEntity<ResponseDto> deleteRecipe(Authentication authentication, Long recipeId) {
+        ResponseDto response = new ResponseDto();
+
+        try {
+            UserEntity user = commonFunctions.getUserAuthenticated(authentication);
+
+            if (!recipeMethods.userCreatedTheRecipe(user, recipeId)) {
+                response.setSuccess(false);
+                response.setMessage("Essa receita não existe ou não pertence ao seu usuário.");
+
+                return ResponseEntity.badRequest().body(response);
+            }
+
+            recipeRepository.deleteById(recipeId);
+
+            response.setSuccess(false);
+            response.setMessage("Receita excluída com êxito!");
+
+            return ResponseEntity.ok().body(response);
+        } catch (Exception exception) {
             return commonFunctions.exceptionHandler(exception, response);
         }
     }

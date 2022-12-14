@@ -31,7 +31,7 @@ public class Recipe {
     @Column(columnDefinition = "varchar(330)")
     private String description;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Tag> tags;
 
     @Column(columnDefinition = "TEXT")
@@ -45,10 +45,10 @@ public class Recipe {
 
     private BigDecimal estimatedPrice;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Review> reviews = new HashSet<>();
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

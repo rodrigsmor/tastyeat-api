@@ -23,4 +23,9 @@ public class Image {
     @NotNull
     @Column(columnDefinition = "varchar(2048)")
     private String imageUrl = "";
+
+    public Image(String imageUrl, String altText) {
+        this.altText = altText;
+        this.imageUrl = imageUrl;
+    }
 }

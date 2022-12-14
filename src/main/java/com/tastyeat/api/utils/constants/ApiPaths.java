@@ -4,8 +4,9 @@ public class ApiPaths {
     public static final String LOGIN = "/api/auth/login";
     public static final String SIGNUP = "/api/auth/signup";
     public static final String GET_RECIPE = "/api/recipe/{id}";
-    public static final String CREATE_RECIPE = "/api/auth/user/recipe";
+    public static final String CREATE_RECIPE = "/api/auth/recipe";
     public static final String GET_RECENT_RECIPES = "/api/recent/recipes";
+    public static final String DELETE_RECIPE = "/api/auth/recipe/delete/{recipeId}";
     public static final String ADD_REVIEW_TO_RECIPE = "/api/auth/recipe/{recipeId}/review";
     public static final String GET_RECIPE_CATEGORIES_AMOUNT = "/api/categories/recipes/amount";
     public static final String ADD_RECIPE_TO_FAVORITES = "/api/auth/recipe/{recipeId}/favorite";

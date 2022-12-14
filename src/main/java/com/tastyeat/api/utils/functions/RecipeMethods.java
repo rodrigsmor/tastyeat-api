@@ -1,12 +1,11 @@
 package com.tastyeat.api.utils.functions;
 
-import com.tastyeat.api.model.Ingredient;
-import com.tastyeat.api.model.Recipe;
-import com.tastyeat.api.model.Tag;
+import com.tastyeat.api.model.*;
 import com.tastyeat.api.repository.*;
 import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -20,6 +19,8 @@ public class RecipeMethods {
     @Autowired
     private TagRepository tagRepository;
     @Autowired
+    private ImageRepository imageRepository;
+    @Autowired
     private UserRepository userRepository;
     @Autowired
     private RecipeRepository recipeRepository;
@@ -30,9 +31,13 @@ public class RecipeMethods {
     @Autowired
     private CommonFunctions commonFunctions;
 
+    @Value("${DEFAULT_RECIPE_COVER}")
+    private String defaultCover;
+
     public Recipe recipeCreation(RecipeDto recipeDto) {
         Recipe recipe = new Recipe(recipeDto);
 
+        recipe.setRecipeCover(imageRepository.save(new Image(defaultCover, "ilustração padrão")));
         List<Ingredient> ingredients = saveIngredients(recipeDto.getIngredients());
         Set<Tag> tags = handleTagsList(recipeDto.getTags());
 
@@ -69,5 +74,9 @@ public class RecipeMethods {
 
         if (ratings.isEmpty()) return 0f;
         return reviewsSum / ratings.size();
+    }
+
+    public Boolean userCreatedTheRecipe(UserEntity user, Long recipeId) {
+        return user.getRecipes().stream().anyMatch(recipe -> recipe.getId().equals(recipeId));
     }
 }
