@@ -7,6 +7,7 @@ import com.tastyeat.api.repository.RecipeRepository;
 import com.tastyeat.api.repository.UserRepository;
 import com.tastyeat.api.service.mold.RecipeService;
 import com.tastyeat.api.utils.constants.ApiPaths;
+import com.tastyeat.api.utils.constants.CategoriesTypes;
 import com.tastyeat.api.utils.dto.common.RecipeSummary;
 import com.tastyeat.api.utils.dto.requests.RecipeDto;
 import com.tastyeat.api.utils.dto.payloads.RecipeResponseDto;
@@ -24,10 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Data
@@ -135,6 +133,30 @@ public class RecipeServiceImplementation implements RecipeService {
             response.setData(e.getLocalizedMessage());
 
             return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @Override
+    public ResponseEntity<ResponseDto> getRecipeCategoriesAmount() {
+        ResponseDto response = new ResponseDto();
+
+        try {
+            HashMap<String, Integer> recipeCategories = new HashMap<>();
+
+            for (CategoriesTypes category : CategoriesTypes.values()) {
+                recipeCategories.put(
+                        category.name(),
+                        recipeRepository.getAmountOfRecipeCategories(category.name())
+                );
+            }
+
+            response.setSuccess(true);
+            response.setData(recipeCategories);
+            response.setMessage("Requisição efetuada com sucesso!");
+
+            return ResponseEntity.ok().body(response);
+        } catch(Exception exception) {
+            return commonFunctions.exceptionHandler(exception, response);
         }
     }
 }
