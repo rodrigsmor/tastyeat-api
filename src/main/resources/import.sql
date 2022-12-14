@@ -376,3 +376,265 @@ INSERT INTO recipe_tags(recipe_id, tags_id) VALUES (12, 72);
 INSERT INTO recipe_tags(recipe_id, tags_id) VALUES (12, 73);
 INSERT INTO recipe_tags(recipe_id, tags_id) VALUES (12, 1);
 INSERT INTO recipe_tags(recipe_id, tags_id) VALUES (12, 31);
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 1 =========================
+
+INSERT INTO ingredient (name) VALUES ('2 xícaras de chá de frango cozido e desfiado'); # ingredient 1
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 1); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1 lata de milho-verde'); # ingredient 2
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 2); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('2 pimentões amarelos em tiras finas'); # ingredient 3
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 3); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1 lata de ervilha'); # ingredient 4
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 4); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('2 batatas cozidas e cortadas em cubos pequenos'); # ingredient 5
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 5); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1 maçã sem casca e sem sementes'); # ingredient 6
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 6); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('2 cenouras grandes raladas'); # ingredient 7
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 7); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1/2 latas de maionese'); # ingredient 8
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 8); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('cheiro-verde a gosto'); # ingredient 9
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 9); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1 pacote de batata palha'); # ingredient 10
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 10); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('200 gramas de uva passa'); # ingredient 11
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 11); # recipe 1
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 2 =========================
+
+
+INSERT INTO ingredient (name) VALUES ('1 pacote de macarrão de macarrão'); # ingredient 12
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 12); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('2 à 5 alhos picados'); # ingredient 13
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 13); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('1 cebola picada'); # ingredient 14
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 14); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('1 calabresa picada'); # ingredient 15
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 15); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('1 sachê ou lata de molho de tomate'); # ingredient 16
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 16); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('1 pimentão picado'); # ingredient 17
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 17); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('2 tomates picados'); # ingredient 18
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 18); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('20 ml de óleo'); # ingredient 19
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 19); # recipe 2
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 3 =========================
+
+INSERT INTO ingredient (name) VALUES ('3 xícaras de suco de cerejas em conserva'); # ingredient 20
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 20); # recipe 3
+
+INSERT INTO ingredient (name) VALUES ('2 limões cortados'); # ingredient 21
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 21); # recipe 3
+
+INSERT INTO ingredient (name) VALUES ('1 copo de cereja'); # ingredient 22
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 22); # recipe 3
+
+INSERT INTO ingredient (name) VALUES ('5 xícaras de água gelada'); # ingredient 23
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 23); # recipe 3
+
+INSERT INTO ingredient (name) VALUES ('3 colheres de chá de açúcar'); # ingredient 24
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 24); # recipe 3
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 4 =========================
+
+INSERT INTO ingredient (name) VALUES ('4 batatas descascadas e picadas'); # ingredient 25
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (4, 25); # recipe 4
+
+INSERT INTO ingredient (name) VALUES ('Sal a gosto'); # ingredient 26
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (4, 26); # recipe 4
+
+INSERT INTO ingredient (name) VALUES ('1 pote de catchup'); # ingredient 27
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (4, 27); # recipe 4
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 5 =========================
+
+INSERT INTO ingredient (name) VALUES ('1 pacote de macarrão caracolino'); # ingredient 28
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 28); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('2 alhos esmagados'); # ingredient 29
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 29); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('1 cebola picada'); # ingredient 30
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 30); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('250 gramas de queijo cheddar'); # ingredient 31
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 31); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('Metade de um pimentão picado'); # ingredient 32
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 32); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('Orégano a gosto'); # ingredient 33
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 33); # recipe 5
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 6 =========================
+
+INSERT INTO ingredient (name) VALUES ('1 xícara de suco de maracujá'); # ingredient 34
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 34); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('2/4 xícara de óleo'); # ingredient 35
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 35); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('2 xícaras de açúcar'); # ingredient 36
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 36); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('1 colher de sopa de fermento'); # ingredient 37
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 37); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('3 xícaras de farinha de trigo'); # ingredient 38
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 38); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('3 ovos'); # ingredient 39
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 39); # recipe 6
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 7 =========================
+
+INSERT INTO ingredient (name) VALUES ('5 cubos de gelo'); # ingredient 40
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 40); # recipe 7
+
+INSERT INTO ingredient (name) VALUES ('1 litro de água gelada'); # ingredient 41
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 41); # recipe 7
+
+INSERT INTO ingredient (name) VALUES ('2 limões esprimidos'); # ingredient 42
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 42); # recipe 7
+
+INSERT INTO ingredient (name) VALUES ('5 colheres de açúcar'); # ingredient 43
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 43); # recipe 7
+
+INSERT INTO ingredient (name) VALUES ('Chá de bordo'); # ingredient 44
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 44); # recipe 7
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 8 =========================
+
+INSERT INTO ingredient (name) VALUES ('250 gramadas de maionese'); # ingredient 45
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 45); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('1 Couve-flor cortado'); # ingredient 46
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 46); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('2 alfaces picados'); # ingredient 47
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 47); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('Sal a gosto'); # ingredient 48
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 48); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('Pimenta do reino'); # ingredient 49
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 49); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('Vinagre e/ou azeite'); # ingredient 50
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 50); # recipe 8
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 9 =========================
+
+INSERT INTO ingredient (name) VALUES ('1/2kg de carne seca'); # ingredient 51
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 51); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('1 dente de alho picado'); # ingredient 52
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 52); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('23 colheres de sopa de toucinho'); # ingredient 53
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 53); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('100g de linguiça calabresa em rodelas'); # ingredient 54
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 54); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('2 xícaras de chá de arroz'); # ingredient 55
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 55); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('Sal a gosto'); # ingredient 56
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 56); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('Cheiro-verde a gosto'); # ingredient 57
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 57); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('3 colheres de chá de bacon em cubos'); # ingredient 58
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 58); # recipe 9
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 10 =========================
+
+INSERT INTO ingredient (name) VALUES ('2 fatias de tomate'); # ingredient 59
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 59); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('duas ou mais folhas de alface'); # ingredient 60
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 60); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('1 pote ou sachê de catchup'); # ingredient 61
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 61); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('1 garrafa de refrigerante coca-cola'); # ingredient 62
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 62); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('um ou mais pãos cortados ao meio'); # ingredient 63
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 63); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('1 ou mais hamburguer de carne'); # ingredient 64
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 64); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('temperos a gosto'); # ingredient 65
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 65); # recipe 10
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 11 =========================
+
+INSERT INTO ingredient (name) VALUES ('1 limão siciliano espremido'); # ingredient 66
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 66); # recipe 11
+
+INSERT INTO ingredient (name) VALUES ('2 ou mais batatas'); # ingredient 67
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 67); # recipe 11
+
+INSERT INTO ingredient (name) VALUES ('Sal a gosto'); # ingredient 68
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 68); # recipe 11
+
+INSERT INTO ingredient (name) VALUES ('1 frango'); # ingredient 69
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 69); # recipe 11
+
+INSERT INTO ingredient (name) VALUES ('Temperos a gosto'); # ingredient 70
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 70); # recipe 11
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 12 =========================
+
+INSERT INTO ingredient (name) VALUES ('Batatas a gosto'); # ingredient 71
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 71); # recipe 12
+
+INSERT INTO ingredient (name) VALUES ('Refrigerante'); # ingredient 72
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 72); # recipe 12
+
+INSERT INTO ingredient (name) VALUES ('Chocolate'); # ingredient 73
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 73); # recipe 12
+
+INSERT INTO ingredient (name) VALUES ('Pipoca'); # ingredient 74
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 74); # recipe 12
+
+INSERT INTO ingredient (name) VALUES ('Suco'); # ingredient 75
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 75); # recipe 12
