@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     Recipe findByReviews(Review reviews);
+
     @Query(value = "SELECT * FROM recipe ORDER BY publication_date DESC LIMIT 4;", nativeQuery = true)
     List<Recipe> getRecentRecipes();
     @Query(value = "SELECT COUNT(*) FROM recipe WHERE category = ?;", nativeQuery = true)

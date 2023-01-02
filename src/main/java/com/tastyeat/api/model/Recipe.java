@@ -31,7 +31,7 @@ public class Recipe {
     @Column(columnDefinition = "varchar(330)")
     private String description;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.PERSIST,CascadeType.REFRESH })
     private Set<Tag> tags;
 
     @Column(columnDefinition = "TEXT")

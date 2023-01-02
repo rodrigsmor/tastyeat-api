@@ -79,4 +79,18 @@ public class RecipeMethods {
     public Boolean userCreatedTheRecipe(UserEntity user, Long recipeId) {
         return user.getRecipes().stream().anyMatch(recipe -> recipe.getId().equals(recipeId));
     }
+
+    public void removeTagsFromRecipe(Long recipeId) {
+        Recipe recipe = recipeRepository.getReferenceById(recipeId);
+
+        recipe.getTags().forEach(tag -> {
+            if(tagRepository.getAmountOfRecipeWithThisTag(tag.getId()) <= 1) {
+                tagRepository.deleteById(tag.getId());
+            }
+
+            recipe.getTags().remove(tag);
+        });
+
+        recipeRepository.save(recipe);
+    }
 }

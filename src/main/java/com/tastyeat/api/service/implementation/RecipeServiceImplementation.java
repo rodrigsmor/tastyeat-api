@@ -174,6 +174,7 @@ public class RecipeServiceImplementation implements RecipeService {
                 return ResponseEntity.badRequest().body(response);
             }
 
+            recipeMethods.removeTagsFromRecipe(recipeId);
             recipeRepository.deleteById(recipeId);
 
             response.setSuccess(false);
