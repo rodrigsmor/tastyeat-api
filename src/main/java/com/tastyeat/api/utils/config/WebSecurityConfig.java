@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,17 +30,15 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .csrf().disable()
-                .exceptionHandling()
-                .authenticationEntryPoint(authEntryPoint)
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authorizeRequests()
-                .antMatchers("/api/auth/**").permitAll()
-                .anyRequest().authenticated()
-                .and().httpBasic();
+                .csrf(AbstractHttpConfigurer::disable).exceptionHandling().authenticationEntryPoint(authEntryPoint)
+                        .and().sessionManagement(sessionManagementConfigure ->
+                        sessionManagementConfigure.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
+                .authorizeRequests(auth -> auth
+                        .antMatchers("/api/auth/login", "/api/auth/signup").permitAll()
+                        .antMatchers("/api/auth/**").authenticated()
+                        .anyRequest().permitAll()
+                ).httpBasic();
 
         httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 

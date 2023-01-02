@@ -376,3 +376,595 @@ INSERT INTO recipe_tags(recipe_id, tags_id) VALUES (12, 72);
 INSERT INTO recipe_tags(recipe_id, tags_id) VALUES (12, 73);
 INSERT INTO recipe_tags(recipe_id, tags_id) VALUES (12, 1);
 INSERT INTO recipe_tags(recipe_id, tags_id) VALUES (12, 31);
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 1 =========================
+
+INSERT INTO ingredient (name) VALUES ('2 xícaras de chá de frango cozido e desfiado'); # ingredient 1
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 1); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1 lata de milho-verde'); # ingredient 2
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 2); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('2 pimentões amarelos em tiras finas'); # ingredient 3
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 3); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1 lata de ervilha'); # ingredient 4
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 4); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('2 batatas cozidas e cortadas em cubos pequenos'); # ingredient 5
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 5); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1 maçã sem casca e sem sementes'); # ingredient 6
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 6); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('2 cenouras grandes raladas'); # ingredient 7
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 7); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1/2 latas de maionese'); # ingredient 8
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 8); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('cheiro-verde a gosto'); # ingredient 9
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 9); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('1 pacote de batata palha'); # ingredient 10
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 10); # recipe 1
+
+INSERT INTO ingredient (name) VALUES ('200 gramas de uva passa'); # ingredient 11
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (1, 11); # recipe 1
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 2 =========================
+
+
+INSERT INTO ingredient (name) VALUES ('1 pacote de macarrão de macarrão'); # ingredient 12
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 12); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('2 à 5 alhos picados'); # ingredient 13
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 13); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('1 cebola picada'); # ingredient 14
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 14); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('1 calabresa picada'); # ingredient 15
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 15); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('1 sachê ou lata de molho de tomate'); # ingredient 16
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 16); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('1 pimentão picado'); # ingredient 17
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 17); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('2 tomates picados'); # ingredient 18
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 18); # recipe 2
+
+INSERT INTO ingredient (name) VALUES ('20 ml de óleo'); # ingredient 19
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (2, 19); # recipe 2
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 3 =========================
+
+INSERT INTO ingredient (name) VALUES ('3 xícaras de suco de cerejas em conserva'); # ingredient 20
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 20); # recipe 3
+
+INSERT INTO ingredient (name) VALUES ('2 limões cortados'); # ingredient 21
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 21); # recipe 3
+
+INSERT INTO ingredient (name) VALUES ('1 copo de cereja'); # ingredient 22
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 22); # recipe 3
+
+INSERT INTO ingredient (name) VALUES ('5 xícaras de água gelada'); # ingredient 23
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 23); # recipe 3
+
+INSERT INTO ingredient (name) VALUES ('3 colheres de chá de açúcar'); # ingredient 24
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (3, 24); # recipe 3
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 4 =========================
+
+INSERT INTO ingredient (name) VALUES ('4 batatas descascadas e picadas'); # ingredient 25
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (4, 25); # recipe 4
+
+INSERT INTO ingredient (name) VALUES ('Sal a gosto'); # ingredient 26
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (4, 26); # recipe 4
+
+INSERT INTO ingredient (name) VALUES ('1 pote de catchup'); # ingredient 27
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (4, 27); # recipe 4
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 5 =========================
+
+INSERT INTO ingredient (name) VALUES ('1 pacote de macarrão caracolino'); # ingredient 28
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 28); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('2 alhos esmagados'); # ingredient 29
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 29); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('1 cebola picada'); # ingredient 30
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 30); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('250 gramas de queijo cheddar'); # ingredient 31
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 31); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('Metade de um pimentão picado'); # ingredient 32
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 32); # recipe 5
+
+INSERT INTO ingredient (name) VALUES ('Orégano a gosto'); # ingredient 33
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (5, 33); # recipe 5
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 6 =========================
+
+INSERT INTO ingredient (name) VALUES ('1 xícara de suco de maracujá'); # ingredient 34
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 34); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('2/4 xícara de óleo'); # ingredient 35
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 35); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('2 xícaras de açúcar'); # ingredient 36
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 36); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('1 colher de sopa de fermento'); # ingredient 37
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 37); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('3 xícaras de farinha de trigo'); # ingredient 38
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 38); # recipe 6
+
+INSERT INTO ingredient (name) VALUES ('3 ovos'); # ingredient 39
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (6, 39); # recipe 6
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 7 =========================
+
+INSERT INTO ingredient (name) VALUES ('5 cubos de gelo'); # ingredient 40
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 40); # recipe 7
+
+INSERT INTO ingredient (name) VALUES ('1 litro de água gelada'); # ingredient 41
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 41); # recipe 7
+
+INSERT INTO ingredient (name) VALUES ('2 limões esprimidos'); # ingredient 42
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 42); # recipe 7
+
+INSERT INTO ingredient (name) VALUES ('5 colheres de açúcar'); # ingredient 43
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 43); # recipe 7
+
+INSERT INTO ingredient (name) VALUES ('Chá de bordo'); # ingredient 44
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (7, 44); # recipe 7
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 8 =========================
+
+INSERT INTO ingredient (name) VALUES ('250 gramadas de maionese'); # ingredient 45
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 45); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('1 Couve-flor cortado'); # ingredient 46
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 46); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('2 alfaces picados'); # ingredient 47
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 47); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('Sal a gosto'); # ingredient 48
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 48); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('Pimenta do reino'); # ingredient 49
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 49); # recipe 8
+
+INSERT INTO ingredient (name) VALUES ('Vinagre e/ou azeite'); # ingredient 50
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (8, 50); # recipe 8
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 9 =========================
+
+INSERT INTO ingredient (name) VALUES ('1/2kg de carne seca'); # ingredient 51
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 51); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('1 dente de alho picado'); # ingredient 52
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 52); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('23 colheres de sopa de toucinho'); # ingredient 53
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 53); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('100g de linguiça calabresa em rodelas'); # ingredient 54
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 54); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('2 xícaras de chá de arroz'); # ingredient 55
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 55); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('Sal a gosto'); # ingredient 56
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 56); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('Cheiro-verde a gosto'); # ingredient 57
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 57); # recipe 9
+
+INSERT INTO ingredient (name) VALUES ('3 colheres de chá de bacon em cubos'); # ingredient 58
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 58); # recipe 9
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 10 =========================
+
+INSERT INTO ingredient (name) VALUES ('2 fatias de tomate'); # ingredient 59
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (9, 59); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('duas ou mais folhas de alface'); # ingredient 60
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 60); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('1 pote ou sachê de catchup'); # ingredient 61
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 61); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('1 garrafa de refrigerante coca-cola'); # ingredient 62
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 62); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('um ou mais pãos cortados ao meio'); # ingredient 63
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 63); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('1 ou mais hamburguer de carne'); # ingredient 64
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 64); # recipe 10
+
+INSERT INTO ingredient (name) VALUES ('temperos a gosto'); # ingredient 65
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (10, 65); # recipe 10
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 11 =========================
+
+INSERT INTO ingredient (name) VALUES ('1 limão siciliano espremido'); # ingredient 66
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 66); # recipe 11
+
+INSERT INTO ingredient (name) VALUES ('2 ou mais batatas'); # ingredient 67
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 67); # recipe 11
+
+INSERT INTO ingredient (name) VALUES ('Sal a gosto'); # ingredient 68
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 68); # recipe 11
+
+INSERT INTO ingredient (name) VALUES ('1 frango'); # ingredient 69
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 69); # recipe 11
+
+INSERT INTO ingredient (name) VALUES ('Temperos a gosto'); # ingredient 70
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (11, 70); # recipe 11
+
+# ========================================================================
+# ====================== INGREDIENTS OF RECIPE 12 =========================
+
+INSERT INTO ingredient (name) VALUES ('Batatas a gosto'); # ingredient 71
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 71); # recipe 12
+
+INSERT INTO ingredient (name) VALUES ('Refrigerante'); # ingredient 72
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 72); # recipe 12
+
+INSERT INTO ingredient (name) VALUES ('Chocolate'); # ingredient 73
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 73); # recipe 12
+
+INSERT INTO ingredient (name) VALUES ('Pipoca'); # ingredient 74
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 74); # recipe 12
+
+INSERT INTO ingredient (name) VALUES ('Suco'); # ingredient 75
+INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES (12, 75); # recipe 12
+
+# =============================================================================
+# ======================== Favorite List of User 1 ============================
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-04-22 10:04:23', 12); # favorite recipe 1
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (1, 1); # favorite list  of user 1
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-04-23 14:48:20', 2); # favorite recipe 2
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (1, 2); # favorite list  of user 1
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-04-25 10:04:56', 8); # favorite recipe 3
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (1, 3); # favorite list  of user 1
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-04-29 07:52:31', 3); # favorite recipe 4
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (1, 4); # favorite list  of user 1
+
+# =============================================================================
+# ======================== Favorite List of User 2 ============================
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-04-29 08:49:17', 4); # favorite recipe 5
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (2, 5); # favorite list  of user 2
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-04-29 09:29:10', 7); # favorite recipe 6
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (2, 6); # favorite list  of user 2
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-04-30 12:59:34', 5); # favorite recipe 7
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (2, 7); # favorite list  of user 2
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-04-30 13:32:01', 9); # favorite recipe 8
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (2, 8); # favorite list  of user 2
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-01 12:02:43', 1); # favorite recipe 9
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (2, 9); # favorite list  of user 2
+
+# =============================================================================
+# ======================== Favorite List of User 3 ============================
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-01 13:29:17', 8); # favorite recipe 10
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 10); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-01 09:31:58', 9); # favorite recipe 11
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 11); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-01 10:12:47', 3); # favorite recipe 12
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 12); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-02 05:48:29', 11); # favorite recipe 13
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 13); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-02 08:42:59', 12); # favorite recipe 14
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 14); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-02 08:51:34', 5); # favorite recipe 15
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 15); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-04 23:19:25', 7); # favorite recipe 16
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 16); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-07 17:59:48', 6); # favorite recipe 17
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 17); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-13 02:34:39', 1); # favorite recipe 18
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 18); # favorite list  of user 3
+
+# Favorite Recipe 1 - User 1 - 3 receitas favoritas
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-13 18:02:11', 2); # favorite recipe 19
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (3, 19); # favorite list  of user 3
+
+# =============================================================================
+# ======================== Favorite List of User 4 ============================
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-13 19:39:27', 2); # favorite recipe 20
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 20); # favorite list  of user 3
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-13 20:23:38', 3); # favorite recipe 21
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 21); # favorite list  of user 4
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-13 22:30:23', 9); # favorite recipe 22
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 22); # favorite list  of user 4
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-13 23:43:10', 1); # favorite recipe 23
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 23); # favorite list  of user 4
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-14 09:49:03', 4); # favorite recipe 24
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 24); # favorite list  of user 4
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-15 03:48:45', 11); # favorite recipe 25
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 25); # favorite list  of user 4
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 19:39:04', 8); # favorite recipe 26
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 26); # favorite list  of user 4
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 20:48:29', 7); # favorite recipe 27
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 27); # favorite list  of user 4
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 22:39:12', 10); # favorite recipe 28
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 28); # favorite list  of user 4
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 23:28:35', 5); # favorite recipe 29
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (4, 29); # favorite list  of user 4
+
+# =============================================================================
+# ======================== Favorite List of User 5 ============================
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 23:29:35', 9); # favorite recipe 30
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 30); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 23:29:42', 2); # favorite recipe 31
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 31); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 23:34:19', 5); # favorite recipe 32
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 32); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 23:42:02', 1); # favorite recipe 33
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 33); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 23:47:29', 6); # favorite recipe 34
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 34); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-19 23:52:13', 8); # favorite recipe 35
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 35); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-21 07:43:54', 3); # favorite recipe 36
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 36); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-21 07:51:03', 10); # favorite recipe 37
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 37); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-21 07:54:21', 4); # favorite recipe 38
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 38); # favorite list  of user 5
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-21 19:12:38', 7); # favorite recipe 39
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (5, 39); # favorite list  of user 5
+
+# =============================================================================
+# ======================== Favorite List of User 6 ============================
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-21 19:48:17', 3); # favorite recipe 40
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (6, 40); # favorite list  of user 6
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-23 12:23:02', 10); # favorite recipe 41
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (6, 41); # favorite list  of user 6
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-28 02:49:10', 2); # favorite recipe 42
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (6, 42); # favorite list  of user 6
+
+INSERT INTO favorite_recipe (addition_date, recipe_id) VALUES ('2022-05-29 05:28:39', 9); # favorite recipe 43
+INSERT INTO users_favorite_recipes_list (user_entity_id, favorite_recipes_list_id) VALUES (6, 43); # favorite list  of user 6
+
+SELECT * FROM db_tastyeat.recipe_reviews;
+
+# ===================================================================================
+# ================================ Reviews of Recipe 1 ==============================
+
+#Review 1
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (5, 5, '2022-05-12 08:47:25', 'ótima receita  U+1F60D! Ameei!! Fiz para meus filhos eeles amaram U+2764 ❤️ Meus almoços agora não podem faltar esse prato !! Obrigado por compartilhar quero mais receitas U+2763 ');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (1, 1);
+
+#Review 2
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (3, 5, '2022-06-18 12:32:58', 'Receita realmente muito boa, recomendo! U+1F609');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (1, 2);
+
+#Review 3
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (4, 4, '2022-07-21 14:09:38', 'Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum.');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (1, 3);
+
+#Review 4
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (2, 3, '2022-08-18 15:07:26', 'Vel elit scelerisque mauris pellentesque. In nisl nisi scelerisque eu ultrices vitae. Elementum pulvinar etiam non quam. Erat velit scelerisque in dictum non consectetur.');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (1, 4);
+
+# ===================================================================================
+# ================================ Reviews of Recipe 2 ==============================
+
+#Review 5
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (2, 4, '2022-09-23 09:11:25', 'At imperdiet dui accumsan sit. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. ');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (2, 5);
+
+#Review 6
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (6, 2, '2022-11-23 17:02:56', 'In nisl nisi scelerisque eu ultrices vitae. Elementum pulvinar etiam non quam. Erat velit scelerisque in dictum non consectetur.');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (2, 6);
+
+#Review 7
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (4, 3, '2022-06-18 12:32:58', 'Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. In vitae turpis massa sed elementum tempus egestas sed. ');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (2, 7);
+
+#Review 8
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (5, 1, '2022-06-18 15:11:24', 'Ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae. ');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (2, 8);
+
+#Review 9
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (4, 4, '2022-06-26 05:35:18', '');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (2, 9);
+
+# ===================================================================================
+# ================================ Reviews of Recipe 3 ==============================
+
+#Review 10
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (2, 2, '2022-03-18 18:36:20', 'ellentesque sit amet porttitor eget dolor morbi non. U+1F92E');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (3, 10);
+
+#Review 11
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (4, 5, '2022-05-23 07:52:37', 'Excelente!!! U+1F63B U+1F639');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (3, 11);
+
+#Review 12
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (6, 5, '2022-05-25 19:36:14', '');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (3, 12);
+
+#Review 13
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (3, 3, '2022-06-03 17:14:28', ' Integer feugiat scelerisque varius morbi enim nunc faucibus a. Sed elementum tempus egestas sed sed. Proin nibh nisl condimentum id venenatis a. Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus. ');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (3, 13);
+
+#Review 14
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (1, 2, '2022-06-17 16:25:39', 'Ut ornare lectus sit amet. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. U+2763 U+1F495');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (3, 14);
+
+#Review 15
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (5, 4, '2022-07-15 18:22:16', '');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (3, 15);
+
+# ===================================================================================
+# ================================ Reviews of Recipe 4 ==============================
+
+#Review 16
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (1, 4, '2022-02-11 10:27:54', '');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (4, 16);
+
+#Review 17
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (5, 5, '2022-08-17 21:49:26', '');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (4, 17);
+
+# ===================================================================================
+# ================================ Reviews of Recipe 5 ==============================
+
+#Review 18
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (2, 5, '2022-03-27 13:59:19', 'Enim sed faucibus turpis in eu mi bibendum. U+1F601');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (5, 18);
+
+#Review 19
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (4, 5, '2022-04-04 17:29:10', 'U+1F601');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (5, 19);
+
+#Review 20
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (3, 2, '2022-05-16 20:17:46', 'Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Id cursus metus aliquam eleifend mi in nulla posuere sollicitudin.  U+1F438 U+270C');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (5, 20);
+
+# ===================================================================================
+# ================================ Reviews of Recipe 7 ==============================
+
+#Review 21
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (3, 4, '2022-04-06 17:29:58', 'Enim sed faucibus turpis in eu mi bibendum. U+1F601');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (7, 21);
+
+# ===================================================================================
+# ================================ Reviews of Recipe 8 ==============================
+
+#Review 22
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (5, 2, '2022-04-19 13:16:18', 'Laoreet suspendisse interdum consectetur libero id. Nulla pellentesque dignissim enim sit. Ac turpis egestas sed tempus urna et. Tincidunt arcu non sodales neque sodales. Est ante in nibh mauris. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt. Curabitur gravida arcu ac tortor dignissim convallis aenean et. Ultricies lacus sed turpis tincidunt id aliquet. U+1F61C');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (8, 22);
+
+#Review 23
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (6, 3, '2022-05-13 17:24:28', 'U+1F619');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (8, 23);
+
+#Review 24
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (1, 4, '2022-06-24 18:12:09', 'Velit scelerisque in dictum non consectetur. Venenatis lectus magna fringilla urna porttitor rhoncus. U+1F618');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (8, 24);
+
+# ===================================================================================
+# ================================ Reviews of Recipe 9 ==============================
+
+#Review 25
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (2, 3, '2022-01-30 10:49:21', 'U+1F618');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (9, 25);
+
+# ====================================================================================
+# ================================ Reviews of Recipe 10 ==============================
+
+#Review 26
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (2, 3, '2022-06-24 18:12:09', 'U+1F924 U+1F924 U+1F924');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (10, 26);
+
+#Review 27
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (5, 3, '2022-07-12 21:20:32', 'U+1F924');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (10, 27);
+
+#Review 28
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (1, 3, '2022-07-18 04:42:19', 'Arcu felis bibendum ut tristique et. U+1F924');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (10, 28);
+
+#Review 29
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (4, 3, '2022-08-12 13:18:21', 'Curabitur gravida arcu ac tortor dignissim convallis aenean et. Ultricies lacus sed turpis tincidunt id aliquet.');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (10, 29);
+
+# ====================================================================================
+# ================================ Reviews of Recipe 11 ==============================
+
+#Review 30
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (4, 5, '2022-06-24 18:12:09', 'Muito bom U+1F924 !!!');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (11, 30);
+
+#Review 31
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (3, 4, '2022-07-12 21:20:32', 'Cras sed felis eget velit aliquet. Pulvinar pellentesque habitant morbi tristique senectus. U+1F975');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (11, 31);
+
+# ====================================================================================
+# ================================ Reviews of Recipe 12 ==============================
+
+#Review 32
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (3, 5, '2022-06-24 18:12:09', 'Muito bom U+1F924 !!!');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (12, 32);
+
+#Review 33
+INSERT INTO review (review_author_id, recipe_rating, publication_date, comment_content) VALUES (1, 4, '2022-07-12 21:20:32', 'Cras sed felis eget velit aliquet. Pulvinar pellentesque habitant morbi tristique senectus. U+1F975');
+INSERT INTO recipe_reviews (recipe_id, reviews_id) VALUES (12, 33);

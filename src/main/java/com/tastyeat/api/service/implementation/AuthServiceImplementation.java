@@ -18,6 +18,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -56,6 +57,9 @@ public class AuthServiceImplementation implements AuthService {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Value("${DEFAULT_PROFILE_PICTURE}")
+    private String defaultProfilePicture;
 
     @Override
     public ResponseEntity<ResponseDto> login(LoginDto loginDto) {
@@ -117,7 +121,7 @@ public class AuthServiceImplementation implements AuthService {
             user.setFullName(signupDto.getFullName());
             user.setPhoneNumber(signupDto.getPhoneNumber());
             user.setDateOfBirth(signupDto.getDateOfBirth());
-            user.setProfilePicture(imageRepository.save(new Image()));
+            user.setProfilePicture(imageRepository.save(new Image(defaultProfilePicture, "ilustração padrão")));
             user.setPassword(passwordEncoder.encode(signupDto.getPassword()));
 
             Role roles = roleRepository.findByName(RoleTypes.USER).get();
